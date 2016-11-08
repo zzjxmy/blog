@@ -6,8 +6,3 @@ Homestead.json
 .idea
 .git
 .env
-<<<<<<< HEAD
-.idea
-=======
-.gitignore
->>>>>>> c63ecd1286214b3b52dd492cad4958dd8963575a
