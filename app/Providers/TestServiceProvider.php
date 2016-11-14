@@ -34,7 +34,7 @@ class TestServiceProvider extends ServiceProvider
         $this->app->instance('instanceService',$instance);
     }
     
-    //如果服务注册缓存，需要返回服务提供者绑定服务的名称
+    //如果服务注册延期加载，需要返回服务提供者绑定服务的名称 以便延期加载
     public function provides ()
     {
         return [

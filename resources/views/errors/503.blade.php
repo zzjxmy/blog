@@ -2,9 +2,6 @@
 <html>
     <head>
         <title>Be right back.</title>
-
-        
-
         <style>
             html, body {
                 height: 100%;
@@ -40,7 +37,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Be right back.</div>
+                <div class="title">网站暂不可用</div>
             </div>
         </div>
     </body>

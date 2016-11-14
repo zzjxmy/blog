@@ -37,6 +37,9 @@ Route::get('show','Index\WelcomeController@show')->name('a');
 
 Route::get('relations','Index\WelcomeController@relations');
 Route::get('session','Index\WelcomeController@session');
+Route::get('redis','Index\WelcomeController@redis');
+Route::get('cookie','Index\WelcomeController@cookie');
+Route::get('queue','Index\WelcomeController@queue');
 //获取实例 四种方法获取实例
 //直接使用make方式解析
 //$generalServiceOne = $this->app->make(App\ServiceTest\GeneralService::class);

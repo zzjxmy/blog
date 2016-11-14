@@ -24,6 +24,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot(Router $router)
     {
+    
+        //全局限制(参数)
+        //$router->pattern('id', '[0-9]+');
         //调用map方法
         parent::boot($router);
     }

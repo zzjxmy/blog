@@ -11,7 +11,7 @@
  * 8、请求处理，前期准备工作（环境监测、配置加载、日志配置、异常处理、外观处理、服务提供者注册、启动服务） Illuminate\Foundation\Http\Kernel handle()
  * 9、路由配置信息加载（routes.php） App\Providers\RouteServiceProvider
  * 9、中间件的处理（请求前事件）(装饰者模式) Illuminate\Foundation\Http\Kernel sendRequestThroughRouter() Illuminate\Pipeline\Pipeline __construct()
- * 10、路由匹配并处理(controller model view)
+ * 10、路由匹配并处理(controller model view) 优先调用路由中间件
  * 11、控制器生成响应
  * 12、发送请求内容 Symfony\Response
  * 13、结束请求（调用中间件请求后事件）
@@ -35,5 +35,5 @@ $response = $kernel->handle(
 );
 //发送响应内容
 $response->send();
-//结束请求
+//结束请求 执行全局($middleware)中间件中的terminate方法
 $kernel->terminate($request, $response);

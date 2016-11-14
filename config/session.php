@@ -29,7 +29,7 @@ return [
     |
     */
     //session有效期
-    'lifetime' => 120,
+    'lifetime' => 120, //分钟
     //是否浏览器关闭，立即结束有效期
     'expire_on_close' => false,
 

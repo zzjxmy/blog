@@ -113,7 +113,7 @@ return [
     */
 
     'redis' => [
-
+        //是否redis集群
         'cluster' => false,
 
         'default' => [
