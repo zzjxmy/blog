@@ -29,12 +29,10 @@ Route::group(['middleware' => ['web']], function () {
     //
 });
 
-Route::resource('home','Index\IndexController');
+Route::resource('home','Index\TestController');
 
 Route::get('welcome','Index\WelcomeController@index');
-
 Route::get('show','Index\WelcomeController@show')->name('a');
-
 Route::get('relations','Index\WelcomeController@relations');
 Route::get('session','Index\WelcomeController@session');
 Route::get('redis','Index\WelcomeController@redis');

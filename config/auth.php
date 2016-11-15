@@ -63,14 +63,16 @@ return [
     | Supported: "database", "eloquent"
     |
     */
-
+    //配置需要用到的服务提供者驱动和模型（table表）
     'providers' => [
         'users' => [
+            //使用orm
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Model\User::class,
         ],
 
         // 'users' => [
+                //使用DB查询构建器
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
@@ -94,7 +96,8 @@ return [
     | they have less time to be guessed. You may change this as needed.
     |
     */
-
+    
+    //重置密码需要用到的配置信息
     'passwords' => [
         'users' => [
             'provider' => 'users',

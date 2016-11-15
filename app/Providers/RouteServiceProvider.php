@@ -41,7 +41,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         //创建一个路由组，将配置路由加载进去
         $router->group(['namespace' => $this->namespace], function ($router) {
-            require app_path('Http/routes.php');
+            require app_path('Http/Routes/routes.php');
         });
     }
 }
