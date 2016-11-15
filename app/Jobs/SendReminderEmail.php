@@ -15,7 +15,7 @@ class SendReminderEmail extends Job implements ShouldQueue
 
     protected $user;
     //设置队列名字
-    public $queue = 'emails';
+    //public $queue = 'emails';
     /**
      * Create a new job instance.
      * @param \App\Model\User $user
@@ -35,7 +35,7 @@ class SendReminderEmail extends Job implements ShouldQueue
     {
         $mailer->raw('Hello World', function($mailer){
             $mailer->from('13061986002@sina.cn','Hello World');
-            $mailer->to('137512638@qq.com','Mz');
+            $mailer->to('13061986002@sina.cn','Mz');
         });
     }
 }

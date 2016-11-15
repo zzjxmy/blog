@@ -37,6 +37,8 @@ class SubscribeMsg extends Command
      */
     public function handle()
     {
+        //redis发布与(订阅)
+        //订阅
         Redis::subscribe(['redis-msg'],function($message){
             echo $message;
         });
