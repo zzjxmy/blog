@@ -24,11 +24,11 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="navbar-form navbar-left" role="search">
+                    <form class="navbar-form navbar-left" role="search" action="/" method="get">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input type="text" class="form-control" placeholder="Search" name="keyword">
                         </div>
-                        <button type="submit" class="btn btn-default">搜索</button>
+                        <button type="submit" class="btn btn-default index-search"><span class="glyphicon glyphicon-search"></span></button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#">登录</a></li>
