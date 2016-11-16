@@ -1,19 +1,18 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="panel panel-default">
-        <!-- Default panel contents -->
-        <div class="panel-heading">Panel heading</div>
-        <div class="panel-body">
-            <p>...</p>
-        </div>
-
-        <!-- List group -->
-        <ul class="list-group">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
+    <div class="list-group no-margin-bottom">
+        @foreach($blogs as $blog)
+            <a href="{{url('article',[$blog->id])}}" class="list-group-item ">
+                <h4 class="list-group-item-heading">{{strip_tags($blog->title)}}</h4>
+                <p class="list-group-item-text blog-list-content">{{strip_tags(mb_strimwidth($blog->content,0,200,'...','utf-8'))}}</p>
+                <p class="margin-top-xs no-margin-bottom">
+                    @foreach($blog->subjects as $subject)
+                        <span class="label {{$subject->target_class}}">{{$subject->name}}</span>
+                    @endforeach
+                    <span class="target-time">{{$blog->created_at}}</span>
+                </p>
+            </a>
+        @endforeach
     </div>
+    {{ $blogs->links() }}
 @endsection

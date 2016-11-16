@@ -27,8 +27,14 @@ class Blog extends Model
         return $this->hasMany('App\Model\Comment','blog_id','id');
     }
     
-    //一篇文章可以有多个专题，一个专题可以有多个文章
+    //一篇文章可以有多个专题，一个专题可以有多个文章 多对多关系
     public function subjects(){
+        /**
+         * 第一个是关联表的模型
+         * 第二个是中间表的表明，如果没有指定会使用当前模型名s+中间表的模型名s 如：users_subjects)
+         * 第三个是当前模型与中间表的关联字段
+         * 第四个是关联表与中间表的关联字段
+         */
         return $this->belongsToMany('App\Model\Subject','blogs_subjects','blog_id','subject_id');
     }
 }

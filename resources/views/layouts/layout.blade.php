@@ -1,4 +1,4 @@
-<html charset="utf-8">
+<html charset="utf-8" lang="zh-CN">
     <head>
         <title>Mz博客海</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,14 +7,16 @@
     </head>
     <body>
         @include('layouts.head')
-        <div class="container">
-            @yield('content')
+        <div class="row">
+            <div class="container">
+                <div class="col-md-10 no-padding-left">
+                    @yield('content')
+                </div>
+                <div class="col-md-2">
+                    @include('layouts.widget')
+                </div>
+            </div>
         </div>
-        <div class="container right">
-        @include('layouts.page')
-        </div>
-        <div>
-            @include('layouts.foot')
-        </div>
+        @include('layouts.foot')
     </body>
 </html>

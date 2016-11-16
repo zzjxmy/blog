@@ -17,6 +17,7 @@ class CreateCommentsTable extends Migration
             $table->string('content',255);
             $table->mediumInteger('blog_id',false,true);
             $table->mediumInteger('user_id',false,true);
+            $table->integer('read_num',false,true)->default(1);
             $table->timestamps();
             $table->index('blog_id');
             $table->index('user_id');
