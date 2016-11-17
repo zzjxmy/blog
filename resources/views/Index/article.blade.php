@@ -10,10 +10,10 @@
         </p>
     </div>
     <div class="bs-callout bs-callout-danger">
-        <p>{{strip_tags(mb_strimwidth($blog->content,0,200,'...','utf-8'))}}</p>
+        <p>{{strip_tags(str_limit($blog->content,200))}}</p>
     </div>
     <div class="content">
-        <p>{!! $blog->content !!}</p>
+        <p>{!! strip_only_tags($blog->content,'script') !!}</p>
     </div>
     <nav>
         <ul class="pager">
