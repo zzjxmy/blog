@@ -2,9 +2,12 @@
 
 namespace App\Model;
 
-use Illuminate\Database\Eloquent\Model;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
+use Eloquent;
 
-class User extends Model {
+class User extends Eloquent   {
+    use EntrustUserTrait;
+    
     //定义一对多的关联
     public function blogs(){
         return $this->hasMany('App\Model\Blog','user_id','id');

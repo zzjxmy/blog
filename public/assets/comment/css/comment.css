@@ -10,6 +10,9 @@
 .margin-top-xs{
 	margin-top:5px;
 }
+.padding-left-xs{
+	padding-left:10px;
+}
 
 .target-time{
 	float: right;
@@ -44,4 +47,21 @@
 
 .index-search{
 	padding: 9px 12px 9px 12px;
+}
+.bs-callout {
+	padding: 20px;
+	margin: 20px 0;
+	border: 1px solid #eee;
+	border-left-width: 5px;
+	border-radius: 3px;
+}
+
+.bs-callout-danger {
+	border-left-color: #d9534f;
+	color: #3c3c3c;
+	font-family: 微软雅黑;
+}
+
+.content p{
+	text-indent:2em
 }
