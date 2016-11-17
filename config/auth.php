@@ -69,6 +69,7 @@ return [
             //使用orm
             'driver' => 'eloquent',
             'model' => App\Model\User::class,
+            'table' => 'users',
         ],
 
         // 'users' => [

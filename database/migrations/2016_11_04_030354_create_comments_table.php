@@ -21,7 +21,7 @@ class CreateCommentsTable extends Migration
             $table->timestamps();
             $table->index('blog_id');
             $table->index('user_id');
-            //$table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
+            $table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
         });
     }
 

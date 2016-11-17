@@ -16,8 +16,8 @@ class CreateTableBlogsSubjects extends Migration
             $table->mediumIncrements('id');
             $table->mediumInteger('blog_id',false,true);
             $table->mediumInteger('subject_id',false,true);
-            //$table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
-            //$table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+            $table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
         });
     }
 

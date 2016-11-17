@@ -157,6 +157,9 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\WidgetProvider::class,
         \Barryvdh\Debugbar\ServiceProvider::class,
+        \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        //用户权限
+        Zizaco\Entrust\EntrustServiceProvider::class,
     ],
 
     /*
@@ -203,6 +206,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Debugbar'  => \Barryvdh\Debugbar\Facade::class,
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
     ],
 
 ];

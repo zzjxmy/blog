@@ -77,5 +77,6 @@ return [
     */
 
     'prefix' => 'laravel',
-
+    //缓存时间 开启 Entrust 的用户组和权限缓存
+    'ttl' => 60 ,
 ];

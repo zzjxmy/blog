@@ -14,12 +14,12 @@ class DatabaseSeeder extends Seeder
         //禁止所有限制条件
         Model::unguard();
         //如果发现找不到类 请执行 composer dump-autoload
-        $this->call(BlogsSubjectTableSeeder::class);
-        $this->call(SubjectTableSeeder::class);
-        $this->call(ReplyTableSeeder::class);
-        $this->call(CommentTableSeeder::class);
-        $this->call(BlogTableSeeder::class);
         $this->call(UserTableSeeder::class);
+        $this->call(BlogTableSeeder::class);
+        $this->call(SubjectTableSeeder::class);
+        $this->call(BlogsSubjectTableSeeder::class);
+        $this->call(CommentTableSeeder::class);
+        $this->call(ReplyTableSeeder::class);
         $this->call(AdminTableSeeder::class);
         //重置
         Model::reguard();

@@ -20,7 +20,7 @@ class CreateReplysTable extends Migration
             $table->timestamps();
             $table->index('comment_id');
             $table->index('user_id');
-            //$table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
+            $table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
         });
     }
 
