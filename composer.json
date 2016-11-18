@@ -10,7 +10,8 @@
         "barryvdh/laravel-debugbar": "^2.3",
         "predis/predis": "~1.0",
         "barryvdh/laravel-ide-helper": "^2.2",
-        "zizaco/entrust": "5.2.x-dev"
+        "zizaco/entrust": "5.2.x-dev",
+        "yuanchao/laravel-5-markdown-editor": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -27,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
         Queue::failing(function (JobFailed $event){
             
         });
+        //设置地区
+        \Carbon\Carbon::setLocale('zh');
     }
 
     /**

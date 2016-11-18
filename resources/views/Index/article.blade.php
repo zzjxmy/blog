@@ -5,7 +5,7 @@
         <p class="text-right">
             <small>
                 作者：<strong>{{strip_tags($blog->user->username)}}</strong>
-                <span class="padding-left-xs">时间：<strong>{{$blog->created_at}}</strong></span>
+                <span class="padding-left-xs"><strong>{{$blog->created_at->diffForHumans()}}</strong></span>
             </small>
         </p>
     </div>

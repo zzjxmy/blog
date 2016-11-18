@@ -9,7 +9,7 @@
                     @foreach($blog->subjects as $subject)
                         <span class="label {{$subject->target_class}}">{{$subject->name}}</span>
                     @endforeach
-                    <span class="target-time">{{$blog->created_at}}</span>
+                    <span class="target-time">{{$blog->created_at->diffForHumans()}}</span>
                 </p>
             </a>
         @endforeach
