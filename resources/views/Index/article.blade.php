@@ -4,7 +4,7 @@
         <h3>{{$blog->title}}</h3>
         <p class="text-right">
             <small>
-                作者：<strong>{{$blog->user->username}}</strong>
+                作者：<strong>{{strip_tags($blog->user->username)}}</strong>
                 <span class="padding-left-xs">时间：<strong>{{$blog->created_at}}</strong></span>
             </small>
         </p>
