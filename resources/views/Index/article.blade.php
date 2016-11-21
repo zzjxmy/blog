@@ -10,15 +10,15 @@
         </p>
     </div>
     <div class="bs-callout bs-callout-danger">
-        <p>{{strip_tags(str_limit($blog->content,200))}}</p>
+        <p>{{$desc}}</p>
     </div>
     <div class="content">
         <p>{!! strip_only_tags($blog->content,'script') !!}</p>
     </div>
     <nav>
         <ul class="pager">
-            <li class="previous {{$prev?'':'disabled'}}"><a href="{{$prev?url('article',[$prev->id]):'#'}}">&larr; prev</a></li>
-            <li class="next {{$next?'':'disabled'}}"><a href="{{$next?url('article',[$next->id]):'#'}}">Next &rarr;</a></li>
+            <li class="previous {{$prev?'':'disabled'}}"><a href="{{$prev?url('article',[Hashids::encode($prev)]):'#'}}">上一篇</a></li>
+            <li class="next {{$next?'':'disabled'}}"><a href="{{$next?url('article',[Hashids::encode($next)]):'#'}}">下一篇</a></li>
         </ul>
     </nav>
 @endsection

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class SubjectTableSeeder extends Seeder
+class TagTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class SubjectTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('subjects')->delete();
+        DB::table('tags')->delete();
         $attributes = [
             ['name' => 'HTML', 'target_class' => 'label-primary'],
             ['name' => 'JS', 'target_class' => 'label-primary'],
@@ -26,7 +26,7 @@ class SubjectTableSeeder extends Seeder
             ['name' => 'Centos', 'target_class' => 'label-danger'],
         ];
         foreach ($attributes as $attribute){
-            \App\Model\Subject::create([
+            \App\Model\Tag::create([
                 'name' => $attribute['name'],
                 'target_class' => $attribute['target_class'],
             ]);

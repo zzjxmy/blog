@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
         //如果发现找不到类 请执行 composer dump-autoload
         $this->call(UserTableSeeder::class);
         $this->call(BlogTableSeeder::class);
-        $this->call(SubjectTableSeeder::class);
-        $this->call(BlogsSubjectTableSeeder::class);
+        $this->call(TagTableSeeder::class);
+        $this->call(BlogsTagTableSeeder::class);
         $this->call(CommentTableSeeder::class);
         $this->call(ReplyTableSeeder::class);
         $this->call(AdminTableSeeder::class);

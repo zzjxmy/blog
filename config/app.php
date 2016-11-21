@@ -160,6 +160,8 @@ return [
         \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         //用户权限
         Zizaco\Entrust\EntrustServiceProvider::class,
+        //加密
+        Vinkla\Hashids\HashidsServiceProvider::class,
     ],
 
     /*
@@ -207,6 +209,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Debugbar'  => \Barryvdh\Debugbar\Facade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
     ],
 
 ];

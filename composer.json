@@ -11,7 +11,8 @@
         "predis/predis": "~1.0",
         "barryvdh/laravel-ide-helper": "^2.2",
         "zizaco/entrust": "5.2.x-dev",
-        "yuanchao/laravel-5-markdown-editor": "dev-master"
+        "yuanchao/laravel-5-markdown-editor": "dev-master",
+        "vinkla/hashids": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

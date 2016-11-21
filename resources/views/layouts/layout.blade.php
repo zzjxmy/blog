@@ -1,22 +1,26 @@
-<html charset="utf-8" lang="zh-CN">
+<html xmlns="http://www.w3.org/1999/xhtml" charset="utf-8" lang="zh-CN">
     <head>
-        <title>Mz博客海</title>
+        <title>{{config('comment.comment.title') . config('comment.comment.other_title')}}</title>
+        <meta name="keywords" content="{{config('comment.comment.title') . config('comment.comment.other_title')}}">
+        <meta name="description" content="{{config('comment.comment.description') . config('comment.comment.other_desc')}}">
+        <meta name="title" content="{{config('comment.comment.title') . config('comment.comment.other_title')}}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         @include('require.css')
         @include('require.js')
     </head>
     <body>
-        @include('layouts.head')
-        <div class="row">
-            <div class="container">
-                <div class="col-md-10 no-padding-left">
+        <div id="wrap">
+            @include('layouts.head')
+            <div class="container main-container">
+                <div class="col-md-10 background-white-color border-radius-xs">
                     @yield('content')
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 no-padding-right">
                     @include('layouts.widget')
                 </div>
             </div>
+            @include('layouts.foot')
         </div>
-        @include('layouts.foot')
+
     </body>
 </html>

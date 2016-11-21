@@ -1,13 +1,13 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="list-group no-margin-bottom">
+    <div class="list-group margin-top-md">
         @foreach($blogs as $blog)
-            <a href="{{url('article',[$blog->id])}}" class="list-group-item ">
+            <a href="{{url('article',[Hashids::encode($blog->id)])}}" class="list-group-item ">
                 <h4 class="list-group-item-heading">{{strip_tags($blog->title)}}</h4>
                 <p class="list-group-item-text blog-list-content">{{strip_tags(str_limit($blog->content,200))}}</p>
                 <p class="margin-top-xs no-margin-bottom">
-                    @foreach($blog->subjects as $subject)
-                        <span class="label {{$subject->target_class}}">{{$subject->name}}</span>
+                    @foreach($blog->tags as $tag)
+                        <span class="label {{$tag->target_class}}">{{$tag->name}}</span>
                     @endforeach
                     <span class="target-time">{{$blog->created_at->diffForHumans()}}</span>
                 </p>

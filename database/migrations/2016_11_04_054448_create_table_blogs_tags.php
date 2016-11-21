@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableBlogsSubjects extends Migration
+class CreateTableBlogsTags extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class CreateTableBlogsSubjects extends Migration
      */
     public function up()
     {
-        Schema::create('blogs_subjects',function (Blueprint $table){
+        Schema::create('blogs_tags',function (Blueprint $table){
             $table->mediumIncrements('id');
             $table->mediumInteger('blog_id',false,true);
-            $table->mediumInteger('subject_id',false,true);
+            $table->mediumInteger('tag_id',false,true);
             $table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
-            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateTableBlogsSubjects extends Migration
      */
     public function down()
     {
-        Schema::drop('blogs_subjects');
+        Schema::drop('blogs_tags');
     }
 }

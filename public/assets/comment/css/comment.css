@@ -1,3 +1,13 @@
+body {
+	font-size: 14px;
+	color: #525252;
+	font-family: NotoSansHans-Regular,AvenirNext-Regular,arial,Hiragino Sans GB,"Microsoft Yahei","Hiragino Sans GB","WenQuanYi Micro Hei",sans-serif;
+	background: #e9eaed;
+	margin: 0;
+}
+.background-white-color{
+	background: #ffffff;
+}
 .no-padding-right{
 	padding-right: 0;
 }
@@ -7,9 +17,23 @@
 .no-margin-bottom{
 	margin-bottom: 0;
 }
+
+.no-margin-top{
+	margin-top: 0;
+}
+
+.pagination{
+	margin-top: 0;
+}
+
 .margin-top-xs{
 	margin-top:5px;
 }
+
+.margin-top-md{
+	margin-top:15px;
+}
+
 .padding-left-xs{
 	padding-left:10px;
 }
@@ -27,6 +51,7 @@
 	color: #777;
 	text-align: center;
 	border-top: 1px solid #e5e5e5;
+	margin-bottom: 0;
 }
 
 .footer-links{
@@ -59,9 +84,20 @@
 .bs-callout-danger {
 	border-left-color: #d9534f;
 	color: #3c3c3c;
-	font-family: 微软雅黑;
 }
 
 .content p{
 	text-indent:2em
+}
+
+.border-radius-xs{
+	border-radius: 4px;
+}
+
+.no-border-radius{
+	border-radius: 0;
+}
+
+.main-container{
+	min-height: 570px;
 }

@@ -38,8 +38,8 @@ return [
     'connections' => [
 
         'main' => [
-            'salt' => 'your-salt-string',
-            'length' => 'your-length-integer',
+            'salt' => env('APP_KEY','your-salt-string'),
+            'length' => env('HASHIDS',20),
             'alphabet' => 'your-alphabet-string',
         ],
 

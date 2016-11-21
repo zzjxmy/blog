@@ -1,4 +1,4 @@
-<footer class="footer" role="contentinfo">
+<footer class="footer background-white-color" role="contentinfo">
     <div class="container">
         <p>Designed and built with all the love in the world by <a href="https://twitter.com/mdo" target="_blank">@mdo</a> and <a href="https://twitter.com/fat" target="_blank">@fat</a>.</p>
         <p>Maintained by the <a href="https://github.com/orgs/twbs/people">core team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>
