@@ -1,5 +1,4 @@
 @extends('layouts.layout')
-@include('editor::decode')
 @section('content')
     <form role="form">
         <div class="form-group">
@@ -30,9 +29,9 @@
             </div>
 
         </div>
-        <div class="form-group">
+        <div class="form-group editor" style="width: auto">
             <label for="exampleInputFile">内容</label>
-            <textarea class="form-control " rows="3" ></textarea>
+            <textarea class="form-control " rows="3" id="myEditor"></textarea>
         </div>
         <button type="submit" class="btn btn-default">发布</button>
     </form>
