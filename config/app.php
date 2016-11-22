@@ -162,6 +162,8 @@ return [
         Zizaco\Entrust\EntrustServiceProvider::class,
         //加密
         Vinkla\Hashids\HashidsServiceProvider::class,
+        //markdown编辑器
+        YuanChao\Editor\EndaEditorServiceProvider::class,
     ],
 
     /*
@@ -210,6 +212,7 @@ return [
         'Debugbar'  => \Barryvdh\Debugbar\Facade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
+        'EndaEditor' => YuanChao\Editor\Facade\EndaEditorFacade::class,
     ],
 
 ];

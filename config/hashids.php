@@ -39,7 +39,7 @@ return [
 
         'main' => [
             'salt' => env('APP_KEY','your-salt-string'),
-            'length' => env('HASHIDS',20),
+            'length' => env('HASHIDS_LEN',20),
             'alphabet' => 'your-alphabet-string',
         ],
 

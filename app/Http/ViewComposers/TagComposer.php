@@ -9,7 +9,7 @@ class TagComposer
 {
     public function compose(View $view)
     {
-        $tags = Tag::withCount('blogs')->get(['name']);
+        $tags = Tag::withCount('blogs')->get(['id','name']);
         $view->with(['tags' => $tags]);
     }
 }

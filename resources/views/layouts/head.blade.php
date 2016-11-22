@@ -12,7 +12,7 @@
                         {{--<li class="active"><a href="#">首页</a></li>--}}
                         <li><a href="/">首页</a></li>
                         <li><a href="#">我的博客</a></li>
-                        <li><a href="#">发布</a></li>
+                        <li><a href="/publish">发布</a></li>
                     </ul>
                     <form class="navbar-form navbar-left" role="search" action="/" method="get">
                         <div class="form-group">
