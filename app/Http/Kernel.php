@@ -14,9 +14,14 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
+        //监测网站是否开启或者关闭
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \App\Http\Middleware\EncryptCookies::class,
+        //将严重错误信息渲染到视图中 以$errors变量渲染
+        \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        //开启表单csrf验证
+        \App\Http\Middleware\VerifyCsrfToken::class,
     ];
 
     /**
