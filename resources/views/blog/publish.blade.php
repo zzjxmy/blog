@@ -1,5 +1,6 @@
 @extends('layouts.layout')
 @section('content')
+    @include('vendor.editor.head')
     <form role="form">
         <div class="form-group">
             <label for="exampleInputEmail1">标题</label>
@@ -29,9 +30,9 @@
             </div>
 
         </div>
-        <div class="form-group editor" style="width: auto">
+        <div class="form-group editor" style="width: auto;">
             <label for="exampleInputFile">内容</label>
-            <textarea class="form-control " rows="3" id="myEditor"></textarea>
+            <textarea class="form-control " rows="3" id="myEditor" style="height: 300px;"></textarea>
         </div>
         <button type="submit" class="btn btn-default">发布</button>
     </form>

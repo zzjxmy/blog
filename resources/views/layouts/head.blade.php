@@ -21,17 +21,21 @@
                         <button type="submit" class="btn btn-default index-search"><span class="glyphicon glyphicon-search"></span></button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">登录</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mz <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">我的博客</a></li>
-                                <li><a href="#">个人信息</a></li>
-                                <li><a href="#">修改密码</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">注销</a></li>
-                            </ul>
-                        </li>
+                        @if(Auth::check())
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mz <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">我的博客</a></li>
+                                    <li><a href="#">个人信息</a></li>
+                                    <li><a href="#">修改密码</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="/logout">注销</a></li>
+                                </ul>
+                            </li>
+                        @else
+                            <li><a href="/login">登录</a></li>
+                            <li><a href="/register">注册</a></li>
+                        @endif
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

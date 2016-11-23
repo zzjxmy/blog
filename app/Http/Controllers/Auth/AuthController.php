@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Model\User;
+use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -20,8 +21,8 @@ class AuthController extends Controller
     | a simple trait to add these behaviors. Why don't you explore it?
     |
     */
-
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    // ThrottlesLogins 错误次数验证
+    use AuthenticatesAndRegistersUsers;
 
     /**
      * Where to redirect users after login / registration.
@@ -29,6 +30,11 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+    
+    /**
+     * login username
+     */
+    public $username = 'account';
 
     /**
      * Create a new authentication controller instance.
@@ -67,6 +73,16 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+        ]);
+    }
+    
+    /**
+     * 复写登录验证方法
+     * @param \Illuminate\Http\Request  $request
+     */
+    protected function validateLogin(Request $request){
+        $this->validate($request, [
+            'account' => 'required', 'password' => 'required',
         ]);
     }
 }

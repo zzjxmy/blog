@@ -8,8 +8,6 @@
         @include('require.css')
         @include('require.js')
     </head>
-    @include('vendor.editor.head')
-
     <body>
         <div id="wrap">
             @include('layouts.head')

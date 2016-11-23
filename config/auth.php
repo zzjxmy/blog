@@ -66,8 +66,8 @@ return [
     //配置需要用到的服务提供者驱动和模型（table表）
     'providers' => [
         'users' => [
-            //使用orm
-            'driver' => 'eloquent',
+            //使用自定义eloquent
+            'driver' => 'mz-eloquent',
             'model' => App\Model\User::class,
             'table' => 'users',
         ],

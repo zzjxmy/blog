@@ -2,10 +2,10 @@
 
 namespace App\Model;
 
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
-use Eloquent;
 
-class User extends Eloquent   {
+class User extends Authenticatable {
     use EntrustUserTrait;
     
     //定义一对多的关联

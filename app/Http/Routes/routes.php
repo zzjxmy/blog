@@ -8,6 +8,6 @@ Route::group(['namespace' => 'Index', 'middleware' => ['web','auth']], function 
     Route::get('/article/{id}','IndexController@article');
 });
 
-Route::group(['namespace' => 'Index', 'middleware' => []], function(){
+Route::group(['namespace' => 'Index', 'middleware' => ['auth']], function(){
     Route::match(['get', 'post'], 'publish', 'BlogController@publish');
 });
