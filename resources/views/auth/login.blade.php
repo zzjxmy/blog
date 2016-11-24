@@ -1,66 +1,36 @@
-@extends('layouts.app')
-
+@extends('layouts.layout')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('account') ? ' has-error' : '' }}">
-                            <label for="account" class="col-md-4 control-label">Account</label>
-
-                            <div class="col-md-6">
-                                <input id="account" type="text" class="form-control" name="account" value="{{ old('account') }}">
-
-                                @if ($errors->has('account'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('account') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember"> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-sign-in"></i> Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Forgot Your Password?</a>
-                            </div>
-                        </div>
-                    </form>
+    <div class="border-radius-xs login-form">
+        <div class="panel-body background-white-color ">
+            <h1 class="page-title">登录</h1>
+            <form role="form" method="POST" action="{{ url('/login') }}">
+                <div class="form-group {{ $errors->has('account') ? ' has-error' : '' }}">
+                    <label for="exampleInputEmail1">账号</label>
+                    <input type="text" name="account" class="form-control" id="exampleInputEmail1" placeholder="账号">
+                    @if ($errors->has('account'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('account') }}</strong>
+                        </span>
+                    @endif
                 </div>
-            </div>
+                <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
+                    <label for="exampleInputPassword1">密码</label>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
+                    @if ($errors->has('password'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> 记住我
+                    </label>
+                </div>
+                {!! csrf_field() !!}
+                <button type="submit" class="btn btn-default mz-btn">登录</button>
+            </form>
         </div>
     </div>
-</div>
 @endsection
+

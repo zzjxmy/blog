@@ -12,15 +12,11 @@
         <div id="wrap">
             @include('layouts.head')
             <div class="container main-container">
-                <div class="col-md-9 background-white-color border-radius-xs">
-                    @yield('content')
-                </div>
-                <div class="col-md-3 no-padding-right">
-                    @include('layouts.widget')
-                </div>
+                @yield('content')
             </div>
+        </div>
+        <div>
             @include('layouts.foot')
         </div>
-
     </body>
 </html>
