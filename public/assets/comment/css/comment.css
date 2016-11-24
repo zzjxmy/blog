@@ -47,6 +47,12 @@ a {
 	color:#FB503B !important;
 	text-decoration: none;
 }
+.pager .disabled a{
+	color:#cccccc !important;
+}
+.phpdebugbar-active{
+	color:#FFFFFF !important;
+}
 .bs-callout-danger {
 	border-left-color: #d9534f;
 	color: #3c3c3c;

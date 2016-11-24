@@ -23,7 +23,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         @if(Auth::check())
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mz <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{Auth::user()->username}}<span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="#">我的博客</a></li>
                                     <li><a href="#">个人信息</a></li>

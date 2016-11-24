@@ -13,17 +13,17 @@ class TagTableSeeder extends Seeder
     {
         DB::table('tags')->delete();
         $attributes = [
-            ['name' => 'HTML', 'target_class' => 'label-primary'],
-            ['name' => 'JS', 'target_class' => 'label-primary'],
-            ['name' => 'Jquery', 'target_class' => 'label-primary'],
-            ['name' => 'PHP', 'target_class' => 'label-info'],
-            ['name' => 'Nginx', 'target_class' => 'label-default'],
-            ['name' => 'Apache', 'target_class' => 'label-default'],
-            ['name' => 'Mysql', 'target_class' => 'label-primary'],
-            ['name' => 'Laravel', 'target_class' => 'label-success'],
-            ['name' => 'Yii', 'target_class' => 'label-success'],
-            ['name' => 'Linux', 'target_class' => 'label-danger'],
-            ['name' => 'Centos', 'target_class' => 'label-danger'],
+            ['id'=> 1 , 'name' => 'HTML', 'target_class' => 'label-primary'],
+            ['id'=> 2 , 'name' => 'JS', 'target_class' => 'label-primary'],
+            ['id'=> 3 , 'name' => 'Jquery', 'target_class' => 'label-primary'],
+            ['id'=> 4 , 'name' => 'PHP', 'target_class' => 'label-info'],
+            ['id'=> 5 , 'name' => 'Nginx', 'target_class' => 'label-default'],
+            ['id'=> 6 , 'name' => 'Apache', 'target_class' => 'label-default'],
+            ['id'=> 7 , 'name' => 'Mysql', 'target_class' => 'label-primary'],
+            ['id'=> 8 , 'name' => 'Laravel', 'target_class' => 'label-success'],
+            ['id'=> 9 , 'name' => 'Yii', 'target_class' => 'label-success'],
+            ['id'=> 10 , 'name' => 'Linux', 'target_class' => 'label-danger'],
+            ['id'=> 11 , 'name' => 'Centos', 'target_class' => 'label-danger'],
         ];
         foreach ($attributes as $attribute){
             \App\Model\Tag::create([

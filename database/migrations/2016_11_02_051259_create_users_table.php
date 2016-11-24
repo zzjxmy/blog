@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration
             $table->mediumIncrements('id');
             $table->string('username',8);
             $table->string('account',32)->unique();
+            $table->string('email',32)->unique();
             $table->char('password',32);
             $table->tinyInteger('is_delete',false,true)->default(0);
             $table->rememberToken();

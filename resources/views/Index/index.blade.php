@@ -11,7 +11,9 @@
                             @foreach($blog->tags as $tag)
                                 <span class="label {{$tag->target_class}}">{{$tag->name}}</span>
                             @endforeach
-                            <span class="target-time">{{$blog->created_at->diffForHumans()}}</span>
+                            <span class="target-time">
+                                来自：<strong>{{$blog->user->username}}</strong> {{$blog->created_at->diffForHumans()}}发布
+                            </span>
                         </p>
                     </a>
                 @endforeach

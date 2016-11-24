@@ -13,11 +13,11 @@ class UserTableSeeder extends Seeder
     {
         DB::table('users')->delete();
         $data = [
-            [ 'username' => 'user1' , 'account' => 'user1' , 'password' => md5('123456')],
-            [ 'username' => 'user2' , 'account' => 'user2' , 'password' => md5('123456')],
-            [ 'username' => 'user3' , 'account' => 'user3' , 'password' => md5('123456')],
-            [ 'username' => 'user4' , 'account' => 'user4' , 'password' => md5('123456')],
-            [ 'username' => 'user5' , 'account' => 'user5' , 'password' => md5('123456')],
+            [ 'id'=> 1 , 'username' => 'user1' , 'account' => 'user1' , 'email' => '123456@qq.com' , 'password' => md5('123456')],
+            [ 'id'=> 2 , 'username' => 'user2' , 'account' => 'user2' , 'email' => '234567@qq.com' , 'password' => md5('123456')],
+            [ 'id'=> 3 , 'username' => 'user3' , 'account' => 'user3' , 'email' => '345678@qq.com' , 'password' => md5('123456')],
+            [ 'id'=> 4 , 'username' => 'user4' , 'account' => 'user4' , 'email' => '456789@qq.com' , 'password' => md5('123456')],
+            [ 'id'=> 5 , 'username' => 'user5' , 'account' => 'user5' , 'email' => '567890@qq.com' , 'password' => md5('123456')],
         ];
         foreach ($data as $value){
             \App\Model\User::create($value);

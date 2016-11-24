@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Model\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -22,11 +23,11 @@ class AuthController extends Controller
     |
     */
     // ThrottlesLogins 错误次数验证
-    use AuthenticatesAndRegistersUsers;
+    use AuthenticatesAndRegistersUsers,ThrottlesLogins;
 
     /**
      * Where to redirect users after login / registration.
-     *
+     * 注册、登录之后跳转的地址
      * @var string
      */
     protected $redirectTo = '/';
@@ -55,8 +56,9 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'username' => 'required|max:8',
+            'account' => array('required','regex:/[a-zA-Z]+/i','max:32','unique:users'),
+            'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
     }
@@ -70,9 +72,10 @@ class AuthController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'username' => $data['username'],
+            'account' => $data['account'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => md5($data['password']),
         ]);
     }
     
@@ -84,5 +87,16 @@ class AuthController extends Controller
         $this->validate($request, [
             'account' => 'required', 'password' => 'required',
         ]);
+    }
+    
+    /**
+     * 复写获取验证参数方法 新增is_delete字段验证
+     * @param \Illuminate\Http\Request $request
+     * @return mixed
+     */
+    protected function getCredentials(Request $request)
+    {
+        $checkData = ['is_delete' => 0];
+        return array_merge($request->only($this->loginUsername(), 'password'),$checkData);
     }
 }
