@@ -37,8 +37,8 @@ class IndexController extends Controller
             return view('errors.404');
         }
         //get next and prev
-        $prev = Blog::where('created_at','>',$blog->created_at)->max('id');
-        $next = Blog::where('created_at','<',$blog->created_at)->min('id');
+        $prev = Blog::where('created_at','>',$blog->created_at)->orderBy('created_at','desc')->first(['id']);
+        $next = Blog::where('created_at','<',$blog->created_at)->orderBy('created_at','desc')->first(['id']);
         $desc = strip_tags(str_limit($blog->content,200));
         Config::set('comment.comment.other_title',' - '.$blog->title);
         Config::set('comment.comment.other_desc',' - '.$desc);

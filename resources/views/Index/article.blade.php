@@ -18,8 +18,8 @@
         </div>
         <nav>
             <ul class="pager">
-                <li class="previous {{$prev?'':'disabled'}}"><a href="{{$prev?url('article',[Hashids::encode($prev)]):'#'}}">上一篇</a></li>
-                <li class="next {{$next?'':'disabled'}}"><a href="{{$next?url('article',[Hashids::encode($next)]):'#'}}">下一篇</a></li>
+                <li class="previous {{$prev?'':'disabled'}}"><a href="{{$prev?url('article',[Hashids::encode($prev->id)]):'#'}}">上一篇</a></li>
+                <li class="next {{$next?'':'disabled'}}"><a href="{{$next?url('article',[Hashids::encode($next->id)]):'#'}}">下一篇</a></li>
             </ul>
         </nav>
     </div>
