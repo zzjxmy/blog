@@ -31,24 +31,16 @@ class IndexController extends Controller
         return view('index.index',['blogs' => $blogs]);
     }
     
-    public function searchTag(){
-        $request = $this->request;
-        $blogs = Blog::where('state','1')->whereHas('tags',function($query) use ($request){
-            $tag = $request->query('tag','');
-            if(!empty($tag)){
-                $query->where('name',$tag);
-            }
+    public function searchTag($tag){
+        $blogs = Blog::where('state','1')->whereHas('tags',function($query) use ($tag){
+            $query->where('name',$tag);
         })->with('subjects')->with('tags')->with('user')->orderBy('created_at','desc')->paginate(12);
         return view('index.index',['blogs' => $blogs]);
     }
     
-    public function searchSubject(){
-        $request = $this->request;
-        $blogs = Blog::where('state','1')->whereHas('subjects',function($query) use ($request){
-            $subject = $request->query('subject','');
-            if(!empty($subject)){
-                $query->where('name',$subject);
-            }
+    public function searchSubject($subject){
+        $blogs = Blog::where('state','1')->whereHas('subjects',function($query) use ($subject){
+            $query->where('name',$subject);
         })->with('subjects')->with('tags')->with('user')->orderBy('created_at','desc')->paginate(12);
         return view('index.index',['blogs' => $blogs]);
     }
