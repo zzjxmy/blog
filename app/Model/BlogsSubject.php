@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlogsSubject extends Model
 {
+    public $timestamps = false;
+    
     public function blogs(){
         return $this->belongsToMany('App\Model\Blog','blogs_subjects','subject_id','blog_id');
     }

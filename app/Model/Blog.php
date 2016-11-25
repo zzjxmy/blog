@@ -39,7 +39,7 @@ class Blog extends Model
     }
     
     //一篇文章有多个分类 多对多的关系
-    public function subject(){
-        $this->belongsToMany('App\Model\BlogsSubject','blogs_subjects','blog_id','subject_id');
+    public function subjects(){
+        return $this->belongsToMany('App\Model\Subject','blogs_subjects','blog_id','subject_id');
     }
 }

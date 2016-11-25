@@ -11,8 +11,14 @@ use Vinkla\Hashids\Facades\Hashids;
 
 class IndexController extends Controller
 {
-    public function index(Request $request){
-        $keyword = $request->query('keyword','');
+    protected $request;
+    
+    public function __construct (Request $request) {
+        $this->request = $request;
+    }
+    
+    public function index(){
+        $keyword = $this->request->query('keyword','');
         if(empty($keyword)){
             $obj = Blog::where('state','1');
         }else{
@@ -21,12 +27,29 @@ class IndexController extends Controller
                     ->orWhere('content', 'like', '%'.$keyword.'%');
             });
         }
-        $blogs = $obj->whereHas('tags',function($query) use ($request){
-            $category = $request->query('tag','');
-            if(!empty($category)){
-                $query->where('name',$category);
+        $blogs = $obj->with('subjects')->with('tags')->with('user')->orderBy('created_at','desc')->paginate(12);
+        return view('index.index',['blogs' => $blogs]);
+    }
+    
+    public function searchTag(){
+        $request = $this->request;
+        $blogs = Blog::where('state','1')->whereHas('tags',function($query) use ($request){
+            $tag = $request->query('tag','');
+            if(!empty($tag)){
+                $query->where('name',$tag);
             }
-        })->with('tags')->with('user')->orderBy('created_at','desc')->paginate(12);
+        })->with('subjects')->with('tags')->with('user')->orderBy('created_at','desc')->paginate(12);
+        return view('index.index',['blogs' => $blogs]);
+    }
+    
+    public function searchSubject(){
+        $request = $this->request;
+        $blogs = Blog::where('state','1')->whereHas('subjects',function($query) use ($request){
+            $subject = $request->query('subject','');
+            if(!empty($subject)){
+                $query->where('name',$subject);
+            }
+        })->with('subjects')->with('tags')->with('user')->orderBy('created_at','desc')->paginate(12);
         return view('index.index',['blogs' => $blogs]);
     }
     
