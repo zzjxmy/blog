@@ -50,7 +50,7 @@ a {
 .pager .disabled a{
 	color:#cccccc !important;
 }
-.phpdebugbar-active{
+.phpdebugbar-active .phpdebugbar-text{
 	color:#FFFFFF !important;
 }
 .bs-callout-danger {
