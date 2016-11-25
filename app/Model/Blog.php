@@ -37,4 +37,9 @@ class Blog extends Model
          */
         return $this->belongsToMany('App\Model\Tag','blogs_tags','blog_id','tag_id');
     }
+    
+    //一篇文章有多个分类 多对多的关系
+    public function subject(){
+        $this->belongsToMany('App\Model\BlogsSubject','blogs_subjects','blog_id','subject_id');
+    }
 }

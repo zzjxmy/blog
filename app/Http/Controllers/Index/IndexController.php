@@ -26,7 +26,7 @@ class IndexController extends Controller
             if(!empty($category)){
                 $query->where('name',$category);
             }
-        })->with('tags')->orderBy('created_at','desc')->paginate(12);
+        })->with('tags')->with('user')->orderBy('created_at','desc')->paginate(12);
         return view('index.index',['blogs' => $blogs]);
     }
     

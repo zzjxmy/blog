@@ -26,10 +26,7 @@ class TagTableSeeder extends Seeder
             ['id'=> 11 , 'name' => 'Centos', 'target_class' => 'label-danger'],
         ];
         foreach ($attributes as $attribute){
-            \App\Model\Tag::create([
-                'name' => $attribute['name'],
-                'target_class' => $attribute['target_class'],
-            ]);
+            \App\Model\Tag::create($attribute);
         }
     }
 }

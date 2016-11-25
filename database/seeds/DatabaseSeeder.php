@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CommentTableSeeder::class);
         $this->call(ReplyTableSeeder::class);
         $this->call(AdminTableSeeder::class);
+        $this->call(SubjectTableSeeder::class);
+        $this->call(BlogsSubjectTableSeeder::class);
         //重置
         Model::reguard();
     }
