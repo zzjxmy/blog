@@ -1,11 +1,12 @@
 @extends('layouts.layout')
 @section('content')
+    @include('editor::decode')
     <div class="col-lg-9 col-md-8 background-white-color no-border-radius">
         <div class="page-header">
             <h3>{{$blog->title}}</h3>
             <p class="text-right">
                 <small>
-                    作者：<strong>{{strip_tags($blog->user->username)}}</strong>
+                    作者：<strong><a href="/search/user/{{$blog->user->username}}">{{$blog->user->username}}</a></strong>
                     <span class="padding-left-xs"><strong>{{$blog->created_at->diffForHumans()}}</strong></span>
                 </small>
             </p>
@@ -14,7 +15,7 @@
             <p>{{$desc}}</p>
         </div>
         <div class="content">
-            <p>{!! strip_only_tags($blog->content,'script') !!}</p>
+            <p>{!! EndaEditor::MarkDecode($blog->content) !!}</p>
         </div>
         <nav>
             <ul class="pager">

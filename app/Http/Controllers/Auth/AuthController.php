@@ -57,7 +57,7 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'username' => 'required|max:8',
-            'account' => array('required','regex:/[a-zA-Z]+/i','max:32','unique:users'),
+            'account' => 'required|max:32|alpha_num|unique:users',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
@@ -85,7 +85,7 @@ class AuthController extends Controller
      */
     protected function validateLogin(Request $request){
         $this->validate($request, [
-            'account' => 'required', 'password' => 'required',
+            'account' => 'required|alpha_num|max:32', 'password' => 'required',
         ]);
     }
     

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlogsSubject extends Model
 {
+    public $fillable = ['subject_id', 'blog_id'];
     public $timestamps = false;
     
     public function blogs(){

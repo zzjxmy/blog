@@ -2,12 +2,14 @@
 
 namespace App\Model;
 
+use Request;
 use Illuminate\Database\Eloquent\Model;
+use Validator;
 
 class Blog extends Model
 {
     //以下字段可以被批量赋值
-    protected $fillable = ['title'];
+    protected $fillable = ['title','content','user_id'];
     //使用laravel提供的默认时间
     public $timestamps = true;
     
@@ -41,5 +43,40 @@ class Blog extends Model
     //一篇文章有多个分类 多对多的关系
     public function subjects(){
         return $this->belongsToMany('App\Model\Subject','blogs_subjects','blog_id','subject_id');
+    }
+    
+    /**
+     * 自定义验证信息爱
+     * @param Request $request
+     * @return mixed
+     */
+    public function verify()
+    {
+        $validate = [
+            'title' => 'required|max:50',
+            'subjects' => 'required|array',
+            'tags' => 'required|array',
+            'content' => 'required',
+        ];
+        
+        return Validator::make(Request::all(),$validate,$this->messages());
+    }
+    
+    /**
+     * 获取已定义验证规则的错误消息。
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'title.required' => '标题是必填的',
+            'title.max' => '标题不能超过五十个字',
+            'tags.required'  => '至少选择一个标签',
+            'tags.array'  => '无效标签',
+            'subjects.required'  => '至少选择一个分类',
+            'subjects.array'  => '无效分类',
+            'content.required'  => '内容是必填的',
+        ];
     }
 }

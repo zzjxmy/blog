@@ -35,7 +35,7 @@
                         </div>
                         <div class="trick-card-tags clearfix">
                             @foreach($blog->tags as $tag)
-                                <a href="/search/tags/{{$tag->name}}" class="tag" title="{{$tag->name}}">{{$tag->name}}</a>
+                                <a href="/search/tag/{{$tag->name}}" class="tag" title="{{$tag->name}}">{{$tag->name}}</a>
                             @endforeach
                         </div>
                     </div>

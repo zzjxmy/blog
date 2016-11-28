@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
 use Vinkla\Hashids\Facades\Hashids;
+use YuanChao\Editor\EndaEditor;
 
 class IndexController extends Controller
 {
@@ -62,7 +63,7 @@ class IndexController extends Controller
         //get next and prev
         $prev = Blog::where('created_at','>',$blog->created_at)->orderBy('created_at','desc')->first(['id']);
         $next = Blog::where('created_at','<',$blog->created_at)->orderBy('created_at','desc')->first(['id']);
-        $desc = strip_tags(str_limit($blog->content,200));
+        $desc = str_limit(strip_tags(EndaEditor::MarkDecode($blog->content),200));
         Config::set('comment.comment.other_title',' - '.$blog->title);
         Config::set('comment.comment.other_desc',' - '.$desc);
         return view('index.article',compact('blog','next','prev','desc'));
