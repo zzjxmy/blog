@@ -11,14 +11,15 @@
                     <ul class="nav navbar-nav">
                         {{--<li class="active"><a href="#">首页</a></li>--}}
                         <li><a href="/">首页</a></li>
-                        <li><a href="#">我的博客</a></li>
+                        <li><a href="#">分类</a></li>
+                        <li><a href="#">标签</a></li>
                         <li><a href="/publish">发布</a></li>
                     </ul>
                     <form class="navbar-form navbar-left" role="search" action="/" method="get">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="{{Request::query('keyword','搜索')}}" name="keyword">
+                            <input type="text" class="form-control no-border-radius" placeholder="{{Request::query('keyword','搜索')}}" name="keyword">
                         </div>
-                        <button type="submit" class="btn btn-default index-search"><span class="glyphicon glyphicon-search"></span></button>
+                        <button type="submit" class="btn btn-default index-search no-border-radius"><span class="glyphicon glyphicon-search"></span></button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         @if(Auth::check())

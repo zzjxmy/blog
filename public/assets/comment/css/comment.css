@@ -13,12 +13,21 @@ body {
 .background-white-color{
 	background: #ffffff;
 }
+.white-color{
+	color:#FFFFFF;
+}
+
 .no-padding-right{
 	padding-right: 0;
 }
 .no-padding-left{
 	padding-left: 0;
 }
+
+.no-padding-top{
+	padding-top: 0;
+}
+
 .no-margin-bottom{
 	margin-bottom: 0;
 }
@@ -43,9 +52,16 @@ body {
 	padding-left:10px;
 }
 
+.padding-right-xs{
+	padding-right:10px;
+}
+
 a {
-	color:#FB503B !important;
+	color: #F95344;
 	text-decoration: none;
+}
+a {
+	background-color: transparent;
 }
 .pager .disabled a{
 	color:#cccccc !important;
@@ -69,6 +85,11 @@ a {
 .no-border-radius{
 	border-radius: 0;
 }
+
+.no-border{
+	border: 0;
+}
+
 label {
 	display: inline-block;
 	margin-bottom: 5px;
@@ -109,6 +130,15 @@ label {
 	color: #777;
 	font-size: 13px;
 }
+.list-group a{
+	color: #FB503B;
+}
+.list-group a:hover{
+	color: #FB503B;
+}
+.list-group a:link{
+	color: #FB503B;
+}
 /*博客详情结束*/
 
 /*首页*/
@@ -131,9 +161,117 @@ label {
 	padding-top: 5px;
 	color: #3c3c3c;
 }
+.push-down {
+	 margin-bottom: 10px;
+ }
+.row {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+.trick-card {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	height: 270px;
+}
+.content-box, .trick-card-inner {
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+	box-shadow: 0 1px 2px rgba(0,0,0,.15);
+	background-color: #fff;
+}
+.trick-card-title {
+	display: block;
+	color: #33383A;
+	font-size: 20px;
+	padding: 20px;
+	min-height: 105px;
+}
+
+.trick-card-title:hover{
+	color: #FB503B;
+	text-decoration: none;
+}
+
+.js-goto-trick:hover{
+	-webkit-box-shadow:0 0 10px #ccc;
+	-moz-box-shadow:0 0 10px #ccc;
+	box-shadow:0 0 10px #ccc;
+	color: #FB503B;
+	text-decoration: none;
+}
+
+.trick-card-by {
+	border: none;
+	padding-top: 0;
+}
+
+.trick-card-stats {
+	color: #777;
+}
+.trick-card-stats, .trick-card-tags {
+	width: 100%;
+	border-top: #eee 1px solid;
+	padding: 10px 20px;
+	font-size: 13px;
+}
+
+.trick-card-timeago {
+	display: block;
+	color: #999;
+	padding-bottom: 5px;
+}
+
+.trick-card-inner .fa {
+	font-size: 14px;
+	margin-right: 5px;
+}
+.fa {
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.trick-card-stat-block {
+	height: 20px;
+	line-height: 20px;
+	float: left;
+	width: 33.333%;
+}
+
+.trick-card-stat-block {
+	height: 20px;
+	line-height: 20px;
+	float: left;
+	width: 33.333%;
+}
+
+.text-right {
+	text-align: right;
+}
+
+a.tag {
+	float: left;
+	display: block;
+	border: 1px solid #FB503B;
+	color: #FB503B;
+	padding: 1px 5px;
+}
+
+a.tag+a.tag {
+	margin-left: 5px;
+}
+
 /*首页结束*/
 
 /*头部*/
+#top a{
+	color: #FB503B;
+}
+
+/*头部结束*/
 /*登录*/
 .panel-body{
 	margin: auto;
@@ -174,4 +312,15 @@ h1.page-title {
 	font-size: 32px;
 	margin: 0 0 10px;
 	text-align: left;
+}
+
+/*登录结束*/
+
+/*文章页挂件 开始*/
+.content-box {
+	padding:0;
+	margin-bottom: 20px;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+	box-shadow: 0 1px 2px rgba(0,0,0,.15);
+	background-color: #fff;
 }

@@ -45,12 +45,20 @@ class IndexController extends Controller
         return view('index.index',['blogs' => $blogs]);
     }
     
+    public function searchUser($userName){
+        $blogs = Blog::where('state','1')->whereHas('user',function($query) use ($userName){
+            $query->where('username',$userName);
+        })->with('subjects')->with('tags')->with('user')->orderBy('created_at','desc')->paginate(12);
+        return view('index.index',['blogs' => $blogs]);
+    }
+    
     public function article($id){
         $id = Hashids::decode($id);
-        $blog = Blog::where(['id' => count($id)?$id[0]:0, 'state' => '1'])->with('user')->first();
+        $blog = Blog::where(['id' => count($id)?$id[0]:0, 'state' => '1'])->with('user')->with('subjects')->with('tags')->first();
         if(!$blog){
             return view('errors.404');
         }
+        $blog->increment('look_num');
         //get next and prev
         $prev = Blog::where('created_at','>',$blog->created_at)->orderBy('created_at','desc')->first(['id']);
         $next = Blog::where('created_at','<',$blog->created_at)->orderBy('created_at','desc')->first(['id']);

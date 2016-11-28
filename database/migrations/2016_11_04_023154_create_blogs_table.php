@@ -16,6 +16,8 @@ class CreateBlogsTable extends Migration
             $table->mediumIncrements('id');
             $table->string('title',50);
             $table->text('content');
+            $table->mediumInteger('look_num',false,true)->default(1);
+            $table->mediumInteger('praise_num',false,true)->default(0);
             $table->mediumInteger('user_id',false,true);
             $table->tinyInteger('state',false,true)->default(1);
             $table->timestamps();

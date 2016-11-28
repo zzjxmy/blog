@@ -7,6 +7,8 @@ Route::group(['namespace' => 'Index', 'middleware' => ['web']], function (){
     Route::get('/','IndexController@index');
     Route::get('/article/{id}','IndexController@article');
     Route::get('/search/tag/{name}','IndexController@searchTag');
+    Route::get('/search/subject/{name}','IndexController@searchSubject');
+    Route::get('/search/user/{name}','IndexController@searchUser');
 });
 
 Route::group(['namespace' => 'Index', 'middleware' => ['auth']], function(){

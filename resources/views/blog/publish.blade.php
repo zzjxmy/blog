@@ -3,22 +3,23 @@
     @include('vendor.editor.head')
     <form role="form">
         <div class="form-group">
-            <label for="exampleInputEmail1">标题</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-        </div>
-
-        <div class="form-group">
-            <label for="exampleInputEmail1">分类</label>
-            <select class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
+            <h4 for="exampleInputEmail1">标题</h4>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="标题~不超过50个字">
         </div>
         <div class="form-group no-margin-bottom">
-            <label for="exampleInputPassword1">标签</label>
+            <h4 for="exampleInputPassword1">分类</h4>
+        </div>
+        <div class="form-group">
+            <div class="">
+                @foreach($subjects as $subject)
+                    <label class="checkbox-inline">
+                        <input type="checkbox" id="inlineCheckbox1" value="{{$subject->id}}"> {{$subject->name}}
+                    </label>
+                @endforeach
+            </div>
+        </div>
+        <div class="form-group no-margin-bottom">
+            <h4 for="exampleInputPassword1">标签</h4>
         </div>
         <div class="form-group">
             <div class="">
@@ -28,10 +29,9 @@
                     </label>
                 @endforeach
             </div>
-
         </div>
         <div class="form-group editor" style="width: auto;">
-            <label for="exampleInputFile">内容</label>
+            <h4 for="exampleInputFile">内容</h4>
             <textarea class="form-control " rows="3" id="myEditor" style="height: 300px;"></textarea>
         </div>
         <button type="submit" class="btn btn-default">发布</button>

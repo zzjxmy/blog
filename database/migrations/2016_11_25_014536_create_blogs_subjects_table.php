@@ -28,6 +28,6 @@ class CreateBlogsSubjectsTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('blogs_subjects');
     }
 }

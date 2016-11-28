@@ -15,6 +15,7 @@ class WidgetProvider extends ServiceProvider
     public function boot()
     {
         View::composer('*','App\Http\ViewComposers\TagComposer');
+        View::composer('*','App\Http\ViewComposers\SubjectComposer');
     }
 
     /**

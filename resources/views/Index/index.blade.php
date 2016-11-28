@@ -1,33 +1,52 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="col-md-9 background-white-color border-radius-xs">
-        <div class="list-group margin-top-md">
-            @if(count($blogs))
-                @foreach($blogs as $blog)
-                    <a href="{{url('article',[Hashids::encode($blog->id)])}}" class="list-group-item index-a">
-                        <h4 class="list-group-item-heading">{{strip_tags($blog->title)}}</h4>
-                        <p class="list-group-item-text blog-list-content">{{strip_tags(str_limit($blog->content,200))}}</p>
-                        <p class="margin-top-xs no-margin-bottom" style="height: 20px;">
-                            @foreach($blog->tags as $tag)
-                                <span class="label {{$tag->target_class}}">{{$tag->name}}</span>
-                            @endforeach
-                            <span class="target-time">
-                                来自：<strong>{{$blog->user->username}}</strong> {{$blog->created_at->diffForHumans()}}发布
-                            </span>
-                        </p>
-                    </a>
-                @endforeach
-            @else
-                <div class="jumbotron">
-                    <h1>没有发现对应的博客内容</h1>
-                    <p>...</p>
-                    <p><a class="btn btn-primary btn-lg" href="/" role="button">更多</a></p>
+    <div class="container">
+        @if(Request::has('keyword'))
+            <div class="row push-down">
+                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+                    <h1 class="page-title">"<strong>视图</strong>" 有 {{$blogs->count()}} 个搜索结果 </h1>
                 </div>
-            @endif
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                </div>
+            </div>
+        @endif
+        <div class="row trick-container">
+            @foreach($blogs as $blog)
+                <div class="trick-card col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div class="trick-card-inner js-goto-trick" data-slug="964668c3e3dc5a59216467c36b0e52b0">
+                        <a class="trick-card-title" href="/article/{{Hashids::encode($blog->id)}}">
+                            {{str_limit($blog->title,62)}}
+                        </a>
+                        <div class="trick-card-stats trick-card-by">
+                            by <a href="/search/user/{{$blog->user->username}}" title="{{$blog->user->username}}">{{$blog->user->username}}</a>
+                        </div>
+                        <div class="trick-card-stats clearfix">
+                            <div class="trick-card-timeago">发布于 {{$blog->created_at->diffForHumans()}} 于
+                                @foreach($blog->subjects as $subject)
+                                    <a href="/search/subject/{{$subject->name}}" title="{{$subject->name}}">{{$subject->name}}</a>
+                                @endforeach
+                            </div>
+                            <div class="trick-card-stat-block"><span class="glyphicon glyphicon-eye-open"></span> {{$blog->look_num}}</div>
+                            <div class="trick-card-stat-block text-center">
+                                <span class="glyphicon glyphicon-thumbs-up"></span>
+                                <a href="#" data-disqus-identifier="72" style="color: #777;">{{$blog->praise_num}}</a>
+                            </div>
+                            <div class="trick-card-stat-block text-right"><span class="glyphicon glyphicon-heart"></span> 0</div>
+                        </div>
+                        <div class="trick-card-tags clearfix">
+                            @foreach($blog->tags as $tag)
+                                <a href="/search/tags/{{$tag->name}}" class="tag" title="{{$tag->name}}">{{$tag->name}}</a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                {{ $blogs->links() }}
+            </div>
         </div>
     </div>
-    <div class="col-md-3 no-padding-right">
-        @include('layouts.widget')
-    </div>
-    {{ $blogs->links() }}
+
 @endsection

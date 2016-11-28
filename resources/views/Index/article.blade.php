@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-    <div class="col-md-9 background-white-color border-radius-xs">
+    <div class="col-lg-9 col-md-8 background-white-color no-border-radius">
         <div class="page-header">
             <h3>{{$blog->title}}</h3>
             <p class="text-right">
@@ -23,7 +23,30 @@
             </ul>
         </nav>
     </div>
-    <div class="col-md-3 no-padding-right">
-        @include('layouts.widget')
+    <div class="col-lg-3 col-md-4 no-padding-right">
+        <div class="background-white-color" style="padding:20px;">
+            <h5>统计</h5>
+            <ul class="list-group">
+                <a href="javascript:;" class="list-group-item no-border no-padding-left"><span class="glyphicon glyphicon-thumbs-up"></span> 0 点赞</a>
+                <a href="javascript:;" class="list-group-item no-border no-padding-left"><span class="glyphicon glyphicon-heart"></span> {{$blog->praise_num}} 收藏</a>
+                <a href="javascript:;" class="list-group-item no-border no-padding-left"><span class="glyphicon glyphicon-eye-open"></span> {{$blog->look_num}} 浏览</a>
+            </ul>
+            <h5>分类</h5>
+            <ul class="list-group">
+                @foreach($blog->subjects as $subject)
+                    <a href="/search/subject/{{$subject->name}}" class="padding-right-xs">
+                        {{$subject->name}}
+                    </a>
+                @endforeach
+            </ul>
+            <h5>标签</h5>
+            <ul class="list-group">
+                @foreach($blog->tags as $tag)
+                    <a href="/search/tag/{{$tag->name}}" class="padding-right-xs">
+                        {{$tag->name}}
+                    </a>
+                @endforeach
+            </ul>
+        </div>
     </div>
 @endsection
