@@ -164,6 +164,8 @@ return [
         Vinkla\Hashids\HashidsServiceProvider::class,
         //markdown编辑器
         YuanChao\Editor\EndaEditorServiceProvider::class,
+        //自定义忘记密码
+        \App\Providers\MzPasswrodResetProvider::class,
     ],
 
     /*
@@ -213,6 +215,7 @@ return [
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Hashids' => Vinkla\Hashids\Facades\Hashids::class,
         'EndaEditor' => YuanChao\Editor\Facade\EndaEditorFacade::class,
+        'MzPassword' => \App\Foundation\Auth\MzPassword::class,
     ],
 
 ];

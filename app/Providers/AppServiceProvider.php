@@ -2,7 +2,8 @@
 
 namespace App\Providers;
 
-use App\Foundation\Auth\MzPasswordBrokerProvider;
+use App\Foundation\Auth\MzPasswordBroker;
+use Illuminate\Auth\Passwords\TokenRepositoryInterface;
 use Queue;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
@@ -39,9 +40,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //注册新PasswordBroker
-        $this->app->singleton('mz-password-broker',function($app){
-            return new MzPasswordBrokerProvider($app);
-        });
+        
     }
 }
