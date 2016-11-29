@@ -12,10 +12,10 @@
             </p>
         </div>
         <div class="bs-callout bs-callout-danger">
-            <p>{{$desc}}</p>
+            <p>{{strip_only_tags($desc,'script',false)}}</p>
         </div>
         <div class="content">
-            <p>{!! EndaEditor::MarkDecode($blog->content) !!}</p>
+            <p>{!! strip_only_tags(EndaEditor::MarkDecode($blog->content)) !!}</p>
         </div>
         <nav>
             <ul class="pager">

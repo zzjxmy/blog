@@ -1,47 +1,31 @@
-@extends('layouts.app')
-
-<!-- Main Content -->
+@extends('layouts.layout')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-                <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fa fa-btn fa-envelope"></i> Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+    <div class="border-radius-xs login-form">
+        <div class="panel-body background-white-color ">
+            <h1 class="page-title">忘记密码</h1>
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
                 </div>
-            </div>
+            @endif
+            <form role="form" method="POST" action="{{ url('/password/email') }}">
+                <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
+                    <label for="exampleInputPassword1">Email</label>
+                    <input type="email" name="email" class="form-control" id="exampleInputPassword1" placeholder="邮箱">
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                {!! csrf_field() !!}
+                <button type="submit" class="btn btn-default mz-btn">发送邮件</button>
+            </form>
+            <ul class="nav nav-list">
+                <li class="text-center"><a href="/login">记得密码?去登录</a></li>
+            </ul>
         </div>
     </div>
-</div>
 @endsection
+
+

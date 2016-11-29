@@ -20,7 +20,7 @@
             <div class="form-group {{ $errors->has('subjects') ? ' has-error' : '' }}">
                 @foreach($subjects as $subject)
                     <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" name="subjects[]" value="{{$subject->id}}"> {{$subject->name}}
+                        <input type="checkbox" id="inlineCheckbox1" name="subjects[]" @if(old('subjects') && in_array($subject->id,old('subjects'))) checked="checked" @endif value="{{$subject->id}}"> {{$subject->name}}
                     </label>
                 @endforeach
                 @if ($errors->has('subjects'))
@@ -35,7 +35,7 @@
             <div class="form-group {{ $errors->has('tags') ? ' has-error' : '' }}">
                 @foreach($tags as $tag)
                     <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" name="tags[]" value="{{$tag->id}}"> {{$tag->name}}
+                        <input type="checkbox" id="inlineCheckbox1" name="tags[]" @if(old('tags') && in_array($tag->id,old('tags'))) checked="checked" @endif value="{{$tag->id}}"> {{$tag->name}}
                     </label>
                 @endforeach
                 @if ($errors->has('tags'))

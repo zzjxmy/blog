@@ -31,7 +31,7 @@
                 <button type="submit" class="btn btn-default mz-btn">登录</button>
             </form>
             <ul class="nav nav-list">
-                <li class="text-center"><a href="/">忘记密码?</a></li>
+                <li class="text-center"><a href="/password/reset">忘记密码?</a></li>
                 <li class="text-center"><a href="/register">没有账号?</a></li>
             </ul>
         </div>

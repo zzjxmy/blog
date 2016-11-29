@@ -19,6 +19,13 @@ class PasswordController extends Controller
     */
 
     use ResetsPasswords;
+    
+    /**
+     * 应该使用的密码 broker
+     *
+     * @var string
+     */
+    protected $broker = 'admins';
 
     /**
      * Create a new password controller instance.
