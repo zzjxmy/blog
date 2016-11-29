@@ -5,7 +5,7 @@ namespace App\Providers;
 use App\Foundation\Auth\MzPasswordBrokerManager;
 use Illuminate\Support\ServiceProvider;
 
-class MzPasswrodResetProvider extends ServiceProvider
+class MzPasswordResetProvider extends ServiceProvider
 {
     protected $defer = true;
     /**
