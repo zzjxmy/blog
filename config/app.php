@@ -165,7 +165,7 @@ return [
         //markdown编辑器
         YuanChao\Editor\EndaEditorServiceProvider::class,
         //自定义忘记密码
-        \App\Providers\MzPasswordResetProvider::class,
+        App\Providers\MzPasswordResetProvider::class,
     ],
 
     /*
