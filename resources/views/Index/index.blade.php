@@ -11,6 +11,7 @@
             </div>
         @endif
         <div class="row trick-container">
+            @include('layouts.message')
             @foreach($blogs as $blog)
                 <div class="trick-card col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <div class="trick-card-inner js-goto-trick" data-slug="964668c3e3dc5a59216467c36b0e52b0">

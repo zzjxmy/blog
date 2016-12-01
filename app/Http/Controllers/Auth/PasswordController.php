@@ -6,6 +6,7 @@ use App\Foundation\Auth\MzPassword;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redis;
 
 class PasswordController extends Controller
@@ -23,6 +24,8 @@ class PasswordController extends Controller
 
     use ResetsPasswords;
     protected $frequency = 30;  //second default 0
+    //定义验证成功后跳转的地址
+    public $redirectPath = '/';
     /**
      * Create a new password controller instance.
      *
@@ -96,12 +99,75 @@ class PasswordController extends Controller
     public function checkSendFrequency(Request $request){
         //获取信息
         $email = $request->get('email');
-        $redisEmail = \Crypt::decrypt(Redis::get($email));
-        $array = explode('_',(string)$redisEmail);
-        if($redisEmail && $array[1]+$this->frequency >= time()){
+        if(!Redis::exists($email)){
+            return true;
+        }
+        try{
+            $redisEmail = \Crypt::decrypt(Redis::get($email));
+            $array = explode('_',(string)$redisEmail);
+            if($redisEmail && $array[1]+$this->frequency >= time()){
+                return false;
+            }
+        }catch (\Exception $exception){
             return false;
         }
         return true;
+    }
+    
+    /**
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function reset(Request $request)
+    {
+        $this->validate(
+            $request,
+            $this->getResetValidationRules(),
+            $this->getResetValidationMessages(),
+            $this->getResetValidationCustomAttributes()
+        );
+        
+        $credentials = $this->getResetCredentials($request);
+        $broker = $this->getBroker();
+        
+        $response = MzPassword::broker($broker)->reset($credentials, function ($user, $password) {
+            $this->resetPassword($user, $password);
+        });
+        switch ($response) {
+            case MzPassword::PASSWORD_RESET:
+                return $this->getResetSuccessResponse($response);
+            default:
+                return $this->getResetFailureResponse($request, $response);
+        }
+    }
+    
+    /**
+     * Reset the given user's password.
+     *
+     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  string  $password
+     * @return void
+     */
+    protected function resetPassword($user, $password)
+    {
+        $user->forceFill([
+            'password' => md5($password)
+        ])->save();
+        
+        Auth::guard($this->getGuard())->login($user);
+    }
+    
+    /**
+     * Get the response for after a successful password reset.
+     *
+     * @param  string  $response
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    protected function getResetSuccessResponse($response)
+    {
+        return redirect($this->redirectPath())->with('success', '密码重置成功');
     }
     
     /**

@@ -26,7 +26,7 @@ class MzPasswordBroker extends PasswordBroker {
             return static::INVALID_USER;
         }
         
-        //生成令牌，并且插入数据至数据库
+        //生成令牌
         $token = $this->reToken($user);
         //发送邮件
         $this->emailResetLink($user, $token, $callback);
@@ -59,6 +59,60 @@ class MzPasswordBroker extends PasswordBroker {
                 call_user_func($callback, $m, $user, $token);
             }
         });
+    }
+    
+    /**
+     * Reset the password for the given token.
+     *
+     * @param  array  $credentials
+     * @param  \Closure  $callback
+     * @return mixed
+     */
+    public function reset(array $credentials, Closure $callback)
+    {
+        // If the responses from the validate method is not a user instance, we will
+        // assume that it is a redirect and simply return it from this method and
+        // the user is properly redirected having an error message on the post.
+        $user = $this->validateReset($credentials);
+        
+        if (! $user instanceof CanResetPassword) {
+            return $user;
+        }
+        
+        $pass = $credentials['password'];
+        
+        // Once we have called this callback, we will remove this token row from the
+        // table and return the response from this callback so the user gets sent
+        // to the destination given by the developers from the callback return.
+        call_user_func($callback, $user, $pass);
+        
+        Redis::del($user->getEmailForPasswordReset());
+        
+        return static::PASSWORD_RESET;
+    }
+    
+    /**
+     * Validate a password reset for the given credentials.
+     *
+     * @param  array  $credentials
+     * @return \Illuminate\Contracts\Auth\CanResetPassword
+     */
+    protected function validateReset(array $credentials)
+    {
+        if (is_null($user = $this->getUser($credentials))) {
+            return static::INVALID_USER;
+        }
+        
+        if (! $this->validateNewPassword($credentials)) {
+            return static::INVALID_PASSWORD;
+        }
+        
+        $redisEmail = Redis::get($user->getEmailForPasswordReset());
+        if (!$redisEmail || $credentials['token'] != $redisEmail) {
+            return static::INVALID_TOKEN;
+        }
+        
+        return $user;
     }
     
     
