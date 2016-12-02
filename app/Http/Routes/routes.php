@@ -12,6 +12,7 @@ Route::group(['namespace' => 'Index', 'middleware' => ['web']], function (){
 });
 
 Route::group(['namespace' => 'Index', 'middleware' => ['auth']], function(){
+    Route::get('/user/blog','BlogController@blogList');
     Route::match(['get', 'post'], 'publish', 'BlogController@publish');
     Route::post('/img/upload', 'BlogController@postUpload');
 });

@@ -48,6 +48,14 @@
                     </a>
                 @endforeach
             </ul>
+            @if(!Auth::guest() && Auth::user()->id == $blog->user_id)
+                <h5>操作</h5>
+                <ul class="list-group">
+                    <a href="" class="padding-right-xs">删除</a>
+                    <a href="#" class="padding-right-xs">|</a>
+                    <a href="" class="padding-right-xs">编辑</a>
+                </ul>
+            @endif
         </div>
     </div>
 @endsection

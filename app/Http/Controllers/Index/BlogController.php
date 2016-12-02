@@ -14,6 +14,15 @@ use YuanChao\Editor\EndaEditor;
 
 class BlogController extends Controller
 {
+    
+    public function blogList(){
+        $blogs = Blog::where(['user_id' => Auth::user()->id,'state' => 1])
+            ->with('user')
+            ->with('subjects')
+            ->with('tags')->paginate(12);
+        return view('blog.blog',compact('blogs'));
+    }
+    
     public function publish(Request $request){
         if(!$request->isMethod('post')){
             return view('blog.publish');

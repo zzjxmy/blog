@@ -47,7 +47,7 @@ class Kernel extends HttpKernel
      * The application's route middleware.
      *
      * These middleware may be assigned to groups or used individually.
-     * 路由中间件，设置后，执行程序完毕会执行
+     * 路由中间件，执行路由时会执行指定中间件
      * @var array
      */
     protected $routeMiddleware = [

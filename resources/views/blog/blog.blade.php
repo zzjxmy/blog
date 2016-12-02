@@ -1,15 +1,13 @@
 @extends('layouts.layout')
 @section('content')
     <div class="container">
-        @if(Request::has('keyword'))
-            <div class="row push-down">
-                <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
-                    <h1 class="page-title">"<strong>视图</strong>" 有 {{$blogs->count()}} 个搜索结果 </h1>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                </div>
+        <div class="row push-down">
+            <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+                <h1 class="page-title"> 我的博客 </h1>
             </div>
-        @endif
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            </div>
+        </div>
         <div class="row trick-container">
             @include('layouts.message')
             @foreach($blogs as $blog)

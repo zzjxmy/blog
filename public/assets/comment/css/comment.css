@@ -185,12 +185,6 @@ label {
 	padding: 20px;
 	min-height: 105px;
 }
-
-.trick-card-title:hover{
-	color: #FB503B;
-	text-decoration: none;
-}
-
 .js-goto-trick:hover{
 	-webkit-box-shadow:0 0 10px #ccc;
 	-moz-box-shadow:0 0 10px #ccc;
@@ -198,6 +192,14 @@ label {
 	color: #FB503B;
 	text-decoration: none;
 }
+.js-goto-trick:hover a{
+	color: #FB503B;
+	text-decoration: none;
+}
+.js-goto-trick:hover .glyphicon{
+	color: #FB503B;
+}
+
 
 .trick-card-by {
 	border: none;
