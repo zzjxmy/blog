@@ -265,6 +265,9 @@ a.tag {
 a.tag+a.tag {
 	margin-left: 5px;
 }
+.alert{
+	margin: 5px 15px;
+}
 
 /*首页结束*/
 

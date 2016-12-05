@@ -15,4 +15,5 @@ Route::group(['namespace' => 'Index', 'middleware' => ['auth']], function(){
     Route::get('/user/blog','BlogController@blogList');
     Route::match(['get', 'post'], 'publish', 'BlogController@publish');
     Route::post('/img/upload', 'BlogController@postUpload');
+    Route::get('/blog/delete/{blogId}','BlogController@delete');
 });

@@ -6,6 +6,7 @@ use DB;
 use App\Model\Blog;
 use App\Model\BlogsSubject;
 use App\Model\BlogsTag;
+use Vinkla\Hashids\Facades\Hashids;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -49,6 +50,13 @@ class BlogController extends Controller
         }catch (Exception $exception){
             return redirect()->back()->with('error' , trans('messages.error'));
         }
+    }
+    
+    public function delete($blogId){
+        $result = true;
+        //$result = Blog::where(['user_id' => Auth::user()->id, 'id' =>Hashids::decode($blogId)])->delete();
+        $message = $result?'success':'error';
+        return redirect()->to('user/blog')->with($message, trans($message));
     }
     
     public function postUpload(){

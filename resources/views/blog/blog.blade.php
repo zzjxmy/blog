@@ -20,7 +20,7 @@
                             by <a href="{{url('/search/user',$blog->user->username)}}" title="{{$blog->user->username}}">{{$blog->user->username}}</a>
                         </div>
                         <div class="trick-card-stats clearfix">
-                            <div class="trick-card-timeago">发布于 {{$blog->created_at->diffForHumans()}} 于
+                            <div class="trick-card-timeago">发布于 {{$blog->created_at->diffForHumans()}}
                                 @foreach($blog->subjects as $subject)
                                     <a href="{{url('/search/subject',$subject->name)}}" title="{{$subject->name}}">{{$subject->name}}</a>
                                 @endforeach

@@ -27,6 +27,7 @@ class RouteServiceProvider extends ServiceProvider
     
         //全局限制(参数)
         $router->pattern('id', '[A-Za-z-]{20}');
+        //$router->pattern('blogId','[1-9]+');
         //调用map方法
         parent::boot($router);
     }
