@@ -28,9 +28,15 @@
         <div class="background-white-color" style="padding:20px;">
             <h5>统计</h5>
             <ul class="list-group">
-                <a href="javascript:;" class="list-group-item no-border no-padding-left"><span class="glyphicon glyphicon-thumbs-up"></span> 0 点赞</a>
-                <a href="javascript:;" class="list-group-item no-border no-padding-left"><span class="glyphicon glyphicon-heart"></span> {{$blog->praise_num}} 收藏</a>
-                <a href="javascript:;" class="list-group-item no-border no-padding-left"><span class="glyphicon glyphicon-eye-open"></span> {{$blog->look_num}} 浏览</a>
+                <a href="javascript:;" class="list-group-item no-border no-padding-left">
+                    <span class="glyphicon glyphicon-thumbs-up"></span> 0 点赞
+                </a>
+                <a href="javascript:;" class="list-group-item no-border no-padding-left">
+                    <span class="glyphicon glyphicon-heart"></span>{{$blog->praise_num}} 收藏
+                </a>
+                <a href="javascript:;" class="list-group-item no-border no-padding-left">
+                    <span class="glyphicon glyphicon-eye-open"></span> {{$blog->look_num}} 浏览
+                </a>
             </ul>
             <h5>分类</h5>
             <ul class="list-group">
@@ -51,7 +57,10 @@
             @if(!Auth::guest() && Auth::user()->id == $blog->user_id)
                 <h5>操作</h5>
                 <ul class="list-group">
-                    <a href="{{url('blog/delete',[Hashids::encode($blog->id)])}}" class="padding-right-xs">删除</a>
+                    <a href="{{url('blog/delete',[Hashids::encode($blog->id)])}}"
+                       mz-content = '确定删除这篇博客吗?'
+                       mz-yes="Location"
+                       class="padding-right-xs mz-bind-a">删除</a>
                     <a href="#" class="padding-right-xs">|</a>
                     <a href="" class="padding-right-xs">编辑</a>
                 </ul>

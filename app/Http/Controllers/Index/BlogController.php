@@ -54,7 +54,7 @@ class BlogController extends Controller
     
     public function delete($blogId){
         $result = true;
-        //$result = Blog::where(['user_id' => Auth::user()->id, 'id' =>Hashids::decode($blogId)])->delete();
+        $result = Blog::where(['user_id' => Auth::user()->id, 'id' =>Hashids::decode($blogId)])->delete();
         $message = $result?'success':'error';
         return redirect()->to('user/blog')->with($message, trans($message));
     }
