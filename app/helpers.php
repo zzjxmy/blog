@@ -19,3 +19,10 @@ if(!function_exists('strip_only_tags')){
         return $str;
     }
 }
+
+if(!function_exists('hashidsDecode')){
+    function hashidsDecode($str){
+        $val = \Hashids::decode($str);
+        return count($val)?$val[0]:0;
+    }
+}

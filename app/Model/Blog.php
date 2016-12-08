@@ -2,7 +2,6 @@
 
 namespace App\Model;
 
-use Request;
 use Illuminate\Database\Eloquent\Model;
 use Validator;
 
@@ -47,10 +46,10 @@ class Blog extends Model
     
     /**
      * 自定义验证信息爱
-     * @param Request $request
+     * @param \Illuminate\Http\Request $request
      * @return mixed
      */
-    public function verify()
+    public function verify($request)
     {
         $validate = [
             'title' => 'required|max:50',
@@ -59,7 +58,7 @@ class Blog extends Model
             'content' => 'required',
         ];
         
-        return Validator::make(Request::all(),$validate,$this->messages());
+        return Validator::make($request->all(),$validate,$this->messages());
     }
     
     /**

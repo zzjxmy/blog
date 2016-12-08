@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Index;
 
 use App\Model\Blog;
 use Illuminate\Http\Request;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
-use Vinkla\Hashids\Facades\Hashids;
 use YuanChao\Editor\EndaEditor;
 
 class IndexController extends Controller
@@ -54,10 +52,9 @@ class IndexController extends Controller
     }
     
     public function article($id){
-        $id = Hashids::decode($id);
-        $blog = Blog::where(['id' => count($id)?$id[0]:0, 'state' => '1'])->with('user')->with('subjects')->with('tags')->first();
+        $blog = Blog::where(['id' => hashidsDecode($id), 'state' => '1'])->with('user')->with('subjects')->with('tags')->first();
         if(!$blog){
-            return view('errors.404');
+            abort(404);
         }
         $blog->increment('look_num');
         //get next and prev

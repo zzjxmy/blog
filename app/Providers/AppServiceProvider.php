@@ -8,6 +8,7 @@ use Queue;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Queue\Events\JobProcessed;
 use Illuminate\Support\ServiceProvider;
+use Vinkla\Hashids\HashidsServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {

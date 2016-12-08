@@ -62,7 +62,7 @@
                        mz-yes="Location"
                        class="padding-right-xs mz-bind-a">删除</a>
                     <a href="#" class="padding-right-xs">|</a>
-                    <a href="" class="padding-right-xs">编辑</a>
+                    <a href="{{url('blog/update',[Hashids::encode($blog->id)])}}" class="padding-right-xs">编辑</a>
                 </ul>
             @endif
         </div>

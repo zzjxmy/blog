@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Foundation\Auth\MzEloquentUserProvider;
+use App\Model\Blog;
+use App\Policies\BlogPolicy;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -10,11 +12,12 @@ class AuthServiceProvider extends ServiceProvider
 {
     /**
      * The policy mappings for the application.
-     *
+     * 注册授权策略
      * @var array
      */
     protected $policies = [
         'App\Model' => 'App\Policies\ModelPolicy',
+        Blog::class => BlogPolicy::class,
     ];
 
     /**
