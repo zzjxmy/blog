@@ -1,11 +1,15 @@
 @if(session('success'))
-    <div class="alert alert-success alert-dismissible container" role="alert">
-        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <strong>Success!</strong> {{session('success')}}.
-    </div>
+    <fieldset class="layui-elem-field">
+        <legend style="color:#5FB878">Success</legend>
+        <div class="layui-field-box" style="color:#5FB878">
+            {{session('success')}}.
+        </div>
+    </fieldset>
 @elseif(session('error'))
-    <div class="alert alert-danger alert-dismissible container" role="alert">
-        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <strong>Error!</strong> {{session('error')}}.
-    </div>
+    <fieldset class="layui-elem-field">
+        <legend style="color:#FF5722">Error</legend>
+        <div class="layui-field-box" style="color:#5FB878">
+            {{session('error')}}.
+        </div>
+    </fieldset>
 @endif

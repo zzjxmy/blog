@@ -1,59 +1,45 @@
 @extends('layouts.layout')
 @section('content')
     @include('vendor.editor.head')
-    @include('layouts.message')
-    <div class="container background-white-color">
-        <form role="form" method="post">
-            {!! csrf_field() !!}
-            <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}">
-                <h4 for="exampleInputEmail1">标题</h4>
-                <input type="text" name="title" class="form-control" value="{{old('title')}}" id="exampleInputEmail1" placeholder="标题~不超过50个字">
-                @if ($errors->has('title'))
-                    <span class="help-block">
-                            <strong>{{ $errors->first('title') }}</strong>
-                        </span>
-                @endif
+    <div class="container background-white-color padding-md">
+        @include('layouts.message')
+        @include('layouts.error')
+        <form class="layui-form" action="" method="post">
+            {{csrf_field()}}
+            <div class="layui-form-item">
+                <label class="layui-form-label">标题</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" placeholder="请输入标题" value="{{old('title')}}" autocomplete="off" class="layui-input">
+                </div>
             </div>
-            <div class="form-group no-margin-bottom">
-                <h4 for="exampleInputPassword1">分类</h4>
+            <div class="layui-form-item">
+                <label class="layui-form-label">分类</label>
+                <div class="layui-input-block">
+                    @foreach($subjects as $subject)
+                        <input type="checkbox" name="subjects[]" @if(old('subjects') && in_array($subject->id,old('subjects'))) checked="checked" @endif value="{{$subject->id}}" title="{{$subject->name}}">
+                    @endforeach
+                </div>
             </div>
-            <div class="form-group {{ $errors->has('subjects') ? ' has-error' : '' }}">
-                @foreach($subjects as $subject)
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" name="subjects[]" @if(old('subjects') && in_array($subject->id,old('subjects'))) checked="checked" @endif value="{{$subject->id}}"> {{$subject->name}}
-                    </label>
-                @endforeach
-                @if ($errors->has('subjects'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('subjects') }}</strong>
-                    </span>
-                @endif
+            <div class="layui-form-item">
+                <label class="layui-form-label">标签</label>
+                <div class="layui-input-block">
+                    @foreach($tags as $tag)
+                        <input type="checkbox" name="tags[]" @if(old('tags') && in_array($tag->id,old('tags'))) checked="checked" @endif value="{{$tag->id}}" title="{{$tag->name}}">
+                    @endforeach
+                </div>
             </div>
-            <div class="form-group no-margin-bottom">
-                <h4 for="exampleInputPassword1">标签</h4>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">内容</label>
+                <div class="layui-input-block editor">
+                    <textarea name="content" id="myEditor" placeholder="请输入内容" class="layui-textarea">{{old('content')}}</textarea>
+                </div>
             </div>
-            <div class="form-group {{ $errors->has('tags') ? ' has-error' : '' }}">
-                @foreach($tags as $tag)
-                    <label class="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" name="tags[]" @if(old('tags') && in_array($tag->id,old('tags'))) checked="checked" @endif value="{{$tag->id}}"> {{$tag->name}}
-                    </label>
-                @endforeach
-                @if ($errors->has('tags'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('tags') }}</strong>
-                    </span>
-                @endif
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
             </div>
-            <div class="form-group editor {{ $errors->has('content') ? ' has-error' : '' }}" style="width: auto;">
-                <h4 for="exampleInputFile">内容</h4>
-                <textarea class="form-control" rows="3" id="myEditor" name="content">{{old('content')}}</textarea>
-                @if ($errors->has('content'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('content') }}</strong>
-                    </span>
-                @endif
-            </div>
-            <button type="submit" class="btn btn-default mz-btn article-btn">发布</button>
         </form>
     </div>
 @endsection
