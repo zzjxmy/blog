@@ -11,8 +11,8 @@
                     <ul class="nav navbar-nav">
                         {{--<li class="active"><a href="#">首页</a></li>--}}
                         <li><a href="{{url('/')}}">首页</a></li>
-                        <li><a href="#">分类</a></li>
-                        <li><a href="#">标签</a></li>
+                        <li><a href="{{url('/subjects')}}">分类</a></li>
+                        <li><a href="{{url('/tags')}}">标签</a></li>
                         <li><a href="{{url('/publish')}}">发布</a></li>
                     </ul>
                     <form class="navbar-form navbar-left" role="search" action="{{url('/')}}" method="get">

@@ -9,12 +9,14 @@ Route::group(['namespace' => 'Index', 'middleware' => ['web']], function (){
     Route::get('/search/tag/{name}','IndexController@searchTag');
     Route::get('/search/subject/{name}','IndexController@searchSubject');
     Route::get('/search/user/{name}','IndexController@searchUser');
+    Route::get('/subjects','IndexController@subjects');
+    Route::get('/tags','IndexController@tags');
 });
 
 Route::group(['namespace' => 'Index', 'middleware' => ['auth']], function(){
     Route::get('/user/blog','BlogController@blogList');
-    Route::match(['get', 'post'], 'publish', 'BlogController@publish');
+    Route::match(['get', 'post'], '/publish', 'BlogController@publish');
     Route::post('/img/upload', 'BlogController@postUpload');
     Route::get('/blog/delete/{blogId}','BlogController@delete');
-    Route::match(['get','post'],'blog/update/{blogId}','BlogController@update');
+    Route::match(['get','post'],'/blog/update/{blogId}','BlogController@update');
 });

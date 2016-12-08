@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Index;
 
 use App\Model\Blog;
+use App\Model\Subject;
+use App\Model\Tag;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
@@ -64,5 +66,15 @@ class IndexController extends Controller
         Config::set('comment.comment.other_title',' - '.$blog->title);
         Config::set('comment.comment.other_desc',' - '.$desc);
         return view('index.article',compact('blog','next','prev','desc'));
+    }
+    
+    public function subjects(){
+        $subjects = Subject::withCount('blogs')->get();
+        return view('index.subjects',compact('subjects'));
+    }
+    
+    public function tags(){
+        $tags = Tag::withCount('blogs')->get();
+        return view('index.tags',compact('tags'));
     }
 }
