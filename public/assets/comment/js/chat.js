@@ -2,7 +2,11 @@ layui.use('layim', function(layim){
 	//基础配置
 	layim.config({
 
-		init: {} //获取主面板列表信息，下文会做进一步介绍
+		init: {
+			url: '' //接口地址（返回的数据格式见下文）
+			,type: 'get' //默认get，一般可不填
+			,data: {} //额外参数
+		} //获取主面板列表信息，下文会做进一步介绍
 		,title: 'Mz' //主面板最小化后显示的名称
 		,min : false //用于设定主面板是否在页面打开时，始终最小化展现
 		,right : '0px' //用于设定主面板右偏移量。该参数可避免遮盖你页面右下角已经的bar
@@ -16,9 +20,10 @@ layui.use('layim', function(layim){
 		,skin: {
 
 		} //拓展背景
+		//配置我的信息（如果设定了该参数，则优先读取该参数，如果没有，这读取init返回的mine信息）
 		,mine: {
-			"username": "纸飞机" //我的昵称
-			,"id": "100000" //我的ID
+			"username": "LayIM体验者" //我的昵称
+			,"id": "100000123" //我的ID
 			,"status": "online" //在线状态 online：在线、hide：隐身
 			,"sign": "在深邃的编码世界，做一枚轻盈的纸飞机" //我的签名
 			,"avatar": "a.jpg" //我的头像
