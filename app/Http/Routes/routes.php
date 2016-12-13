@@ -20,3 +20,7 @@ Route::group(['namespace' => 'Index', 'middleware' => ['auth']], function(){
     Route::get('/blog/delete/{blogId}','BlogController@delete');
     Route::match(['get','post'],'/blog/update/{blogId}','BlogController@update');
 });
+
+Route::group(['namespace' => 'Api','middleware' => ['api']],function(){
+   Route::get('/checkUserIsLogin','UserController@checkUserIsLogin');
+});

@@ -5,6 +5,7 @@
         <meta name="description" content="{{config('comment.comment.description') . config('comment.comment.other_desc')}}">
         <meta name="title" content="{{config('comment.comment.title') . config('comment.comment.other_title')}}">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         @include('require.css')
         @include('require.js')
     </head>

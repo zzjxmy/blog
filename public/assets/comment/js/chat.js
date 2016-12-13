@@ -1,7 +1,6 @@
 layui.use('layim', function(layim){
 	//基础配置
 	layim.config({
-
 		init: {
 			url: '' //接口地址（返回的数据格式见下文）
 			,type: 'get' //默认get，一般可不填
