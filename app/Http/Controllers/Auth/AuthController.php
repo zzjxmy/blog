@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Model\User;
+use GatewayClient\Gateway;
 use Illuminate\Http\Request;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -97,5 +98,20 @@ class AuthController extends Controller
     {
         $checkData = ['is_delete' => 0];
         return array_merge($request->only($this->loginUsername(), 'password'),$checkData);
+    }
+    
+    /**
+     * Log the user out of the application.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function logout()
+    {
+        \Auth::guard($this->getGuard())->logout();
+        if(session('isBind')){
+            Gateway::$registerAddress = config('chat.registerAddress');
+            Gateway::closeClient(session('isBind'));
+        }
+        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }
 }

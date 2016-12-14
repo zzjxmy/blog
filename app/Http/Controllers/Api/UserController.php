@@ -15,10 +15,13 @@ class UserController extends ApiController {
     }
     
     public function bindUserBySocketId(){
-        if($this->request->input('socketId')){
+        $clientId = $this->request->input('socketId');
+        if($clientId){
             //bind
             Gateway::$registerAddress = config('chat.registerAddress');
-            Gateway::bindUid($this->request->input('socketId'), Auth::user()->id);
+            Gateway::bindUid($clientId, Auth::user()->id);
+            //设置已经绑定
+            session()->set('isBind',$clientId);
             return $this->responseJson(['isBind' => true]);
         }
         return $this->responseJson(['isBind' => false]);
