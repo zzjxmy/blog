@@ -1,0 +1,56 @@
+2016-12-14 10:47:55 exception 'Exception' with message 'You can't send(array) to client, you need to convert it to a string. ' in F:\www\workman\vendor\workerman\workerman-for-win\Protocols\Websocket.php:225
+Stack trace:
+#0 F:\www\workman\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(242): Workerman\Protocols\Websocket::encode(Array, Object(Workerman\Connection\TcpConnection))
+#1 F:\www\workman\vendor\workerman\gateway-worker-for-win\src\Gateway.php(532): Workerman\Connection\TcpConnection->send(Array)
+#2 [internal function]: GatewayWorker\Gateway->onWorkerMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\www\workman\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(429): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #17)
+#5 F:\www\workman\vendor\workerman\workerman-for-win\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 F:\www\workman\vendor\workerman\workerman-for-win\Worker.php(779): Workerman\Events\Select->loop()
+#7 F:\www\workman\vendor\workerman\gateway-worker-for-win\src\Gateway.php(264): Workerman\Worker->run()
+#8 F:\www\workman\vendor\workerman\workerman-for-win\Worker.php(439): GatewayWorker\Gateway->run()
+#9 F:\www\workman\vendor\workerman\workerman-for-win\Worker.php(348): Workerman\Worker::runAllWorkers()
+#10 F:\www\workman\Applications\Mz\start_gateway.php(63): Workerman\Worker::runAll()
+#11 {main}
+2016-12-14 10:48:37 exception 'Exception' with message 'You can't send(array) to client, you need to convert it to a string. ' in F:\www\workman\vendor\workerman\workerman-for-win\Protocols\Websocket.php:225
+Stack trace:
+#0 F:\www\workman\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(242): Workerman\Protocols\Websocket::encode(Array, Object(Workerman\Connection\TcpConnection))
+#1 F:\www\workman\vendor\workerman\gateway-worker-for-win\src\Gateway.php(532): Workerman\Connection\TcpConnection->send(Array)
+#2 [internal function]: GatewayWorker\Gateway->onWorkerMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\www\workman\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(429): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #17)
+#5 F:\www\workman\vendor\workerman\workerman-for-win\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 F:\www\workman\vendor\workerman\workerman-for-win\Worker.php(779): Workerman\Events\Select->loop()
+#7 F:\www\workman\vendor\workerman\gateway-worker-for-win\src\Gateway.php(264): Workerman\Worker->run()
+#8 F:\www\workman\vendor\workerman\workerman-for-win\Worker.php(439): GatewayWorker\Gateway->run()
+#9 F:\www\workman\vendor\workerman\workerman-for-win\Worker.php(348): Workerman\Worker::runAllWorkers()
+#10 F:\www\workman\Applications\Mz\start_gateway.php(63): Workerman\Worker::runAll()
+#11 {main}
+2016-12-14 10:49:35 exception 'Exception' with message 'You can't send(array) to client, you need to convert it to a string. ' in F:\www\workman\vendor\workerman\workerman-for-win\Protocols\Websocket.php:225
+Stack trace:
+#0 F:\www\workman\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(242): Workerman\Protocols\Websocket::encode(Array, Object(Workerman\Connection\TcpConnection))
+#1 F:\www\workman\vendor\workerman\gateway-worker-for-win\src\Gateway.php(532): Workerman\Connection\TcpConnection->send(Array)
+#2 [internal function]: GatewayWorker\Gateway->onWorkerMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\www\workman\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(429): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #23)
+#5 F:\www\workman\vendor\workerman\workerman-for-win\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 F:\www\workman\vendor\workerman\workerman-for-win\Worker.php(779): Workerman\Events\Select->loop()
+#7 F:\www\workman\vendor\workerman\gateway-worker-for-win\src\Gateway.php(264): Workerman\Worker->run()
+#8 F:\www\workman\vendor\workerman\workerman-for-win\Worker.php(439): GatewayWorker\Gateway->run()
+#9 F:\www\workman\vendor\workerman\workerman-for-win\Worker.php(348): Workerman\Worker::runAllWorkers()
+#10 F:\www\workman\Applications\Mz\start_gateway.php(63): Workerman\Worker::runAll()
+#11 {main}
+2016-12-14 10:49:47 exception 'Exception' with message 'You can't send(array) to client, you need to convert it to a string. ' in F:\www\workman\vendor\workerman\workerman-for-win\Protocols\Websocket.php:225
+Stack trace:
+#0 F:\www\workman\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(242): Workerman\Protocols\Websocket::encode(Array, Object(Workerman\Connection\TcpConnection))
+#1 F:\www\workman\vendor\workerman\gateway-worker-for-win\src\Gateway.php(532): Workerman\Connection\TcpConnection->send(Array)
+#2 [internal function]: GatewayWorker\Gateway->onWorkerMessage(Object(Workerman\Connection\TcpConnection), Array)
+#3 F:\www\workman\vendor\workerman\workerman-for-win\Connection\TcpConnection.php(429): call_user_func(Array, Object(Workerman\Connection\TcpConnection), Array)
+#4 [internal function]: Workerman\Connection\TcpConnection->baseRead(Resource id #17)
+#5 F:\www\workman\vendor\workerman\workerman-for-win\Events\Select.php(257): call_user_func_array(Array, Array)
+#6 F:\www\workman\vendor\workerman\workerman-for-win\Worker.php(779): Workerman\Events\Select->loop()
+#7 F:\www\workman\vendor\workerman\gateway-worker-for-win\src\Gateway.php(264): Workerman\Worker->run()
+#8 F:\www\workman\vendor\workerman\workerman-for-win\Worker.php(439): GatewayWorker\Gateway->run()
+#9 F:\www\workman\vendor\workerman\workerman-for-win\Worker.php(348): Workerman\Worker::runAllWorkers()
+#10 F:\www\workman\Applications\Mz\start_gateway.php(63): Workerman\Worker::runAll()
+#11 {main}
