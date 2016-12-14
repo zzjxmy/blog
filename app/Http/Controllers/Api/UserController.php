@@ -19,6 +19,10 @@ class UserController extends ApiController {
         if($clientId){
             //bind
             Gateway::$registerAddress = config('chat.registerAddress');
+            //如果之前已经连接过，清除之前的连接
+            if(session('isBind')){
+                Gateway::closeClient(session('isBind'));
+            }
             Gateway::bindUid($clientId, Auth::user()->id);
             //设置已经绑定
             session()->set('isBind',$clientId);
