@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers\Api;
 
+use \Illuminate\Http\Request;
 use App\Http\Controllers\ApiController;
-use Illuminate\Support\Facades\Auth;
 
-class UserController extends ApiController  {
+class UserController extends ApiController {
+    protected $request;
     
-    public function checkUserIsLogin()
-    {
-        return $this->responseJson(['isLogin' => !Auth::guest()]);
+    public function __construct(Request $request){
+        $this->request = $request;
+    }
+    
+    public function bindUserBySocketId(){
+        //bind
+        
     }
 }

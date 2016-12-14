@@ -2,7 +2,6 @@ var mzSocket = {
 	'socket' : {},
 	'onConnect' : function(connection){
 		if(connection){
-			mzCheck.checkUserIsLogin();
 			var socket = this.socket = new WebSocket(connection);
 			socket.onopen = this.onOpen;
 			socket.onmessage = this.onMessage;
@@ -11,11 +10,13 @@ var mzSocket = {
 			throw 'connection is empty';
 		}
 	},
-	'onOpen' : function(){
-		console.log('connect is success');
+	'onOpen' : function(data){
+		mzAjax.options.async = false;
+		mzCheck.checkUserIsLogin();
 	},
 	'onMessage' : function(data){
-		console.log(data);
+		var json = mzFunction.toJson(data.data);
+		if(mzCheck.isLogin && json.type == 'init') mzCheck.bindUserBySocketId(json.clientId);
 	},
 	'onSend' : function(data){
 		this.socket.send(data);

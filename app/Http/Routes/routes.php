@@ -22,5 +22,9 @@ Route::group(['namespace' => 'Index', 'middleware' => ['auth']], function(){
 });
 
 Route::group(['namespace' => 'Api','middleware' => ['api']],function(){
-   Route::get('/checkUserIsLogin','UserController@checkUserIsLogin');
+   Route::get('/checkUserIsLogin','PublicController@checkUserIsLogin');
+});
+
+Route::group(['namespace' => 'Api','middleware' => ['api','auth']],function(){
+    Route::post('/bindUserBySocketId','UserController@bindUserBySocketId');
 });

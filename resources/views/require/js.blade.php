@@ -5,7 +5,7 @@
 <script type="text/javascript" src="{{asset('/assets/comment/js/function.js')}}"></script>
 <script type="text/javascript" src="{{asset('/assets/comment/js/comment.js')}}"></script>
 <script type="text/javascript" src="{{asset('/assets/comment/js/chat.js')}}"></script>
-<script type="text/javascript" src="{{asset('/assets/comment/js/cookie.js')}}"></script>
+<script type="text/javascript" src="{{asset('/assets/comment/js/function.js')}}"></script>
 <script type="text/javascript" src="{{asset('/assets/comment/js/ajax.js')}}"></script>
-<script type="text/javascript" src="{{asset('/assets/comment/js/check.js')}}"></script>
+<script type="text/javascript" src="{{asset('/assets/comment/js/user.js')}}"></script>
 <script type="text/javascript" src="{{asset('/assets/comment/js/socket.js')}}"></script>
