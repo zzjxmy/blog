@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "08389dc0d93bac7b200903637968cc77",
-    "content-hash": "4bae03d5073e08671813fe4a97553655",
+    "hash": "a234fcb5d4c118382d0d9b75791b36fd",
+    "content-hash": "10e4006f9cf8f64a5c059e844d7576a9",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -2308,6 +2308,33 @@
                 "environment"
             ],
             "time": "2016-09-01 10:05:43"
+        },
+        {
+            "name": "workerman/gatewayclient",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/walkor/GatewayClient.git",
+                "reference": "e58edc1f5eee7465c24fc97d8adff1f59b1b8455"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/walkor/GatewayClient/e58edc1f5eee7465c24fc97d8adff1f59b1b8455.zip",
+                "reference": "e58edc1f5eee7465c24fc97d8adff1f59b1b8455",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "GatewayClient\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "homepage": "http://www.workerman.net",
+            "time": "2016-12-07 09:06:11"
         },
         {
             "name": "yuanchao/laravel-5-markdown-editor",
