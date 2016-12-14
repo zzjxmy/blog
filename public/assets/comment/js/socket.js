@@ -16,7 +16,7 @@ var mzSocket = {
 	},
 	'onMessage' : function(data){
 		var json = mzFunction.toJson(data.data);
-		if(mzCheck.isLogin && json.type == 'init') mzCheck.bindUserBySocketId(json.clientId);
+		if(mzCheck.isLogin && json.type == 'init') mzCheck.bindUserBySocketId(json.client_id);
 	},
 	'onSend' : function(data){
 		this.socket.send(data);
