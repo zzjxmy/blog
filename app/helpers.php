@@ -26,3 +26,20 @@ if(!function_exists('hashidsDecode')){
         return count($val)?$val[0]:0;
     }
 }
+
+if(!function_exists('reUserInfo')){
+    function reUserInfo($user){
+        if(is_array($user)){
+            $data['username'] = $user['username'];
+            $data['id'] = $user['id'];
+        }elseif(is_object($user)){
+            $data['username'] = $user->username;
+            $data['id'] = $user->id;
+        }else{
+            return [];
+        }
+        $data['sign'] = config('chat.sign');
+        $data['avatar'] = config('chat.avatar');
+        return $data;
+    }
+}

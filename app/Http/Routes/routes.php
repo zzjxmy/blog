@@ -23,6 +23,7 @@ Route::group(['namespace' => 'Index', 'middleware' => ['auth']], function(){
 
 Route::group(['namespace' => 'Api','middleware' => ['api']],function(){
    Route::get('/checkUserIsLogin','PublicController@checkUserIsLogin');
+   Route::get('/getInfo','PublicController@getInfo');
 });
 
 Route::group(['namespace' => 'Api','middleware' => ['api','auth']],function(){

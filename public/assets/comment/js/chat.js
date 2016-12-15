@@ -2,7 +2,7 @@ layui.use('layim', function(layim){
 	//基础配置
 	layim.config({
 		init: {
-			url: '' //接口地址（返回的数据格式见下文）
+			url: '/getInfo' //接口地址（返回的数据格式见下文）
 			,type: 'get' //默认get，一般可不填
 			,data: {} //额外参数
 		} //获取主面板列表信息，下文会做进一步介绍
@@ -21,11 +21,11 @@ layui.use('layim', function(layim){
 		} //拓展背景
 		//配置我的信息（如果设定了该参数，则优先读取该参数，如果没有，这读取init返回的mine信息）
 		,mine: {
-			"username": "LayIM体验者" //我的昵称
+			"username": "未登录用户" //我的昵称
 			,"id": "100000123" //我的ID
 			,"status": "online" //在线状态 online：在线、hide：隐身
-			,"sign": "在深邃的编码世界，做一枚轻盈的纸飞机" //我的签名
-			,"avatar": "a.jpg" //我的头像
+			,"sign": "登录后可发送消息" //我的签名
+			,"avatar": "/assets/comment/images/avatar.jpg" //我的头像
 		}
 		//获取群员接口（返回的数据格式见下文）
 		,members: {

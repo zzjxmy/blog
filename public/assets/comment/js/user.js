@@ -13,7 +13,8 @@ var mzCheck = {
 		mzAjax.onStart(url,{'socketId':socketId});
 	},
 	'checkUserSuccess' : function(data){
-		return mzCheck.isLogin =  data.data.isLogin;
+		mzCheck.isLogin =  data.data.isLogin;
+		return true;
 	},
 	'bindUserSuccess' : function(data){
 		return mzCheck.isBind =  data.data.isBind;

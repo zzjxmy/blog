@@ -1,6 +1,8 @@
 var mzSocket = {
 	'socket' : {},
 	'onConnect' : function(connection){
+		mzAjax.options.async = true;
+		mzCheck.checkUserIsLogin();
 		if(connection){
 			var socket = this.socket = new WebSocket(connection);
 			socket.onopen = this.onOpen;
@@ -11,8 +13,7 @@ var mzSocket = {
 		}
 	},
 	'onOpen' : function(data){
-		mzAjax.options.async = false;
-		mzCheck.checkUserIsLogin();
+
 	},
 	'onMessage' : function(data){
 		var json = mzFunction.toJson(data.data);
