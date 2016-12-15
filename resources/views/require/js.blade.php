@@ -9,3 +9,4 @@
 <script type="text/javascript" src="{{asset('/assets/comment/js/ajax.js')}}"></script>
 <script type="text/javascript" src="{{asset('/assets/comment/js/user.js')}}"></script>
 <script type="text/javascript" src="{{asset('/assets/comment/js/socket.js')}}"></script>
+<script type="text/javascript" src="{{asset('/assets/comment/js/message.js')}}"></script>

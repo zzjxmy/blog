@@ -108,9 +108,13 @@ class AuthController extends Controller
     public function logout()
     {
         \Auth::guard($this->getGuard())->logout();
-        if(session('isBind')){
+        $info = session('isBind');
+        if($info){
+            session()->forget('isBind');
             Gateway::$registerAddress = config('chat.registerAddress');
-            Gateway::closeClient(session('isBind'));
+            //通知所有用户，我下线了
+            Gateway::bindUid($info['clientId'], $info['uid']);
+            Gateway::closeClient($info['clientId']);
         }
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
     }

@@ -8,8 +8,8 @@ layui.use('layim', function(layim){
 		} //获取主面板列表信息，下文会做进一步介绍
 		,title: 'Mz' //主面板最小化后显示的名称
 		,min : false //用于设定主面板是否在页面打开时，始终最小化展现
-		,right : '0px' //用于设定主面板右偏移量。该参数可避免遮盖你页面右下角已经的bar
-		,minRight : "400px" //用户控制聊天面板最小化时、及新消息提示层的相对right的px坐标。
+		//,right : '0px' //用于设定主面板右偏移量。该参数可避免遮盖你页面右下角已经的bar
+		//,minRight : "400px" //用户控制聊天面板最小化时、及新消息提示层的相对right的px坐标。
 		,initSkin : "" //设置初始背景，默认不开启。可设置./css/modules/layim/skin目录下的图片文件名
 		,notice: false //是否开启桌面消息提醒，即在浏览器之外的提醒
 		,voice : false //设定消息提醒的声音文件（所在目录：./layui/css/modules/layim/voice/）
