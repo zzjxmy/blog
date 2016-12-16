@@ -6,7 +6,10 @@ var mzMessage = {
 				break;
 			case 'setFriendStatus':
 				this.setFriendStatus(data);
-			break;
+				break;
+			case 'ping' :
+				this.ping();
+				break;
 		}
 	},
 	'init' : function(data){
@@ -16,5 +19,8 @@ var mzMessage = {
 		layui.use('layim', function(layim){
 			layim.setFriendStatus(data.data.id, data.data.status); //设置指定好友在线，即头像取消置灰
 		});
+	},
+	'ping' : function(){
+		mzSocket.socket.send("{'type':'response'}");
 	}
 };

@@ -29,7 +29,7 @@ class UserController extends ApiController {
             //通知所有用户 排除自己
             Gateway::sendToAll($this->reJson([
                 'id' => $uid, 'username' => $username,  'status' => 'online'
-            ],'setFriendStatus'));
+            ],'setFriendStatus'),null,$clientId);
             //设置已经绑定
             Gateway::setSession($clientId, ['username' => $username,'id' => $uid]);
             session()->set('isBind',['clientId' =>$clientId,'uid' => $uid]);
