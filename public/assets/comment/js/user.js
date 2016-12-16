@@ -18,9 +18,10 @@ var mzCheck = {
 	'pingData' : function(){
 		setInterval(function(){
 			console.log('check is online');
-			if(!mzCheck.ping && mzCheck.isLogin){
-				mzCheck.ping = false;
+			if(!mzCheck.ping && mzCheck.isBind){
 				layer.alert('你已经掉线，请刷新页面重试');
+			}else{
+				mzCheck.ping = false;
 			}
 		},this.time)
 	},

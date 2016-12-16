@@ -21,7 +21,7 @@ var mzSocket = {
 		this.socket.send(data);
 	},
 	'onError' : function(data){
-		console.log(data);
+		layer.alert('聊天服务连接失败');
 	}
 };
 
