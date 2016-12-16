@@ -10,6 +10,9 @@ var mzMessage = {
 			case 'ping' :
 				this.ping();
 				break;
+			case 'onMessage' :
+				this.onMessage(data);
+				break;
 		}
 	},
 	'init' : function(data){
@@ -21,6 +24,27 @@ var mzMessage = {
 		});
 	},
 	'ping' : function(){
+		mzCheck.ping = true;
+		console.log(mzCheck.ping);
 		mzSocket.socket.send("{'type':'response'}");
+	},
+	'sendMessage' : function(data){
+		if(mzCheck.isLogin){
+			mzSocket.socket.send(data);
+		}else {
+			layui.use('layim', function(layim){
+				layim.getMessage({
+					system: true //系统消息
+					,id: data.to.id //聊天窗口ID
+					,type: data.to.type //聊天窗口类型
+					,content: '发送失败，请登录后再操作'
+				})
+			});
+		}
+	},
+	'onMessage' : function (data) {
+		layui.use('layim', function(layim){
+			layim.getMessage(data.data);
+		});
 	}
 };

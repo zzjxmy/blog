@@ -57,4 +57,9 @@ layui.use('layim', function(layim){
 		,find: layui.cache.dir + 'css/modules/layim/html/find.html' //发现页面地址，若不开启，剔除该项即可
 		,chatLog: layui.cache.dir + 'css/modules/layim/html/chatLog.html' //聊天记录页面地址，若不开启，剔除该项即可
 	});
+
+	layim.on('sendMessage', function(res){
+		mzMessage.sendMessage(res);
+	});
+
 });

@@ -1,6 +1,8 @@
 var mzCheck = {
 	'isLogin' : false,
 	'isBind' : false,
+	'ping' : false,
+	'time' : 60*1000,
 	'checkUserIsLogin' : function(){
 		var url = '/checkUserIsLogin';
 		mzAjax.options.type = 'get';
@@ -12,8 +14,20 @@ var mzCheck = {
 		mzAjax.onSuccess = this.bindUserSuccess;
 		mzAjax.onStart(url,{'socketId':socketId});
 	},
+	//心跳
+	'pingData' : function(){
+		setInterval(function(){
+			console.log('check is online');
+			if(!mzCheck.ping && mzCheck.isLogin){
+				mzCheck.ping = false;
+				layer.alert('你已经掉线，请刷新页面重试');
+			}
+		},this.time)
+	},
 	'checkUserSuccess' : function(data){
 		mzCheck.isLogin =  data.data.isLogin;
+		//启动心跳监测
+		mzCheck.pingData();
 		return true;
 	},
 	'bindUserSuccess' : function(data){
