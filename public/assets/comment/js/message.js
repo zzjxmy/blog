@@ -10,13 +10,21 @@ var mzMessage = {
 			case 'ping' :
 				this.ping();
 				break;
-			case 'onMessage' :
+			case 'message' :
 				this.onMessage(data);
 				break;
 		}
 	},
 	'init' : function(data){
-		if(mzCheck.isLogin && data.type == 'init')mzCheck.bindUserBySocketId(data.data.client_id);
+		mzAjax.options.async = false;
+		mzCheck.checkUserIsLogin();
+		setTimeout(function(){
+			if(mzCheck.isLogin && data.type == 'init'){
+				mzAjax.options.async = false;
+				mzCheck.bindUserBySocketId(data.data.client_id);
+			}
+		}, 1500 );
+
 	},
 	'setFriendStatus' : function(data){
 		layui.use('layim', function(layim){
@@ -25,12 +33,11 @@ var mzMessage = {
 	},
 	'ping' : function(){
 		mzCheck.ping = true;
-		console.log(mzCheck.ping);
 		mzSocket.socket.send("{'type':'response'}");
 	},
 	'sendMessage' : function(data){
 		if(mzCheck.isLogin){
-			mzSocket.socket.send(data);
+			mzSocket.onSend(data);
 		}else {
 			layui.use('layim', function(layim){
 				layim.getMessage({

@@ -2,7 +2,7 @@ var mzCheck = {
 	'isLogin' : false,
 	'isBind' : false,
 	'ping' : false,
-	'time' : 60*1000,
+	'time' : 80*1000,
 	'checkUserIsLogin' : function(){
 		var url = '/checkUserIsLogin';
 		mzAjax.options.type = 'get';

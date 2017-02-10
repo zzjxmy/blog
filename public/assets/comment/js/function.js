@@ -26,8 +26,11 @@ var mzFunction = {
 		if(val!=null)document.cookie= name + "="+val+";expires="+exp.toGMTString();
 	},
 	'toJson' : function(str){
-		return str?JSON.parse(str):{};
-	}
+		return str?JSON.stringify(str):'';
+	},
+	'toObj' : function(str) {
+		return str ? JSON.parse(str) : {};
+	},
 };
 
 /**

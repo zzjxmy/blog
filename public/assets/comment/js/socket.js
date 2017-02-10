@@ -1,8 +1,6 @@
 var mzSocket = {
 	'socket' : {},
 	'onConnect' : function(connection){
-		mzAjax.options.async = false;
-		mzCheck.checkUserIsLogin();
 		if(connection){
 			var socket = this.socket = new WebSocket(connection);
 			socket.onopen = this.onOpen;
@@ -14,11 +12,13 @@ var mzSocket = {
 	},
 	'onOpen' : function(data){},
 	'onMessage' : function(data){
-		console.log(data);
-		mzMessage.start(mzFunction.toJson(data.data));
+		console.log(mzFunction.toObj(data.data));
+		mzMessage.start(mzFunction.toObj(data.data));
 	},
 	'onSend' : function(data){
-		this.socket.send(data);
+		data.type = 'message';
+		console.log(mzFunction.toJson(data));
+		this.socket.send(mzFunction.toJson(data));
 	},
 	'onError' : function(data){
 		layer.alert('聊天服务连接失败');
